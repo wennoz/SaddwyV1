@@ -1,0 +1,75 @@
+.fondo_atras {
+    background: radial-gradient(249.51% 131.7% at 100% 90.72%, #602160 0%, #280652 76.04%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fondo_delante {
+    background: white;
+    border-radius: 40px;
+}
+
+.formulario {
+    background-color: #ECDEF2;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.registrar {
+    background-color: #7757A0;
+    color: white;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.registrar:hover {
+    border-color: #7757A0;
+}
+
+* {
+    font-family: petrona;
+}
+
+.letra {
+    font-size: 1rem;
+}
+
+.linea {
+    width: 42%;
+    height: 2px;
+    margin-top: 4%;
+    background-color: black;
+}
+
+
+
+.google_png {
+    max-width: 8%;
+    margin-right: 4%;
+}
+
+.imagen {
+    height: auto;
+    width: 150px;
+}
+
+.fs-lg-custom {
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    .imagen {
+        width: 350px;
+    }
+
+    .fs-lg-custom {
+        font-size: 1.9rem;
+    }
+
+    .letra {
+        font-size: 1.2rem;
+    }
+
+    .formulario {
+        border-radius: 0px 40px 40px 0px
+    }
+}

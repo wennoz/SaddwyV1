@@ -1,0 +1,205 @@
+* {
+    font-family: petrona;
+}
+
+
+.foto_perfil {
+    max-width: 20%;
+}
+
+.carta_lenguaje {
+    border: none;
+    border-radius: 15px;
+}
+
+.carta_javascript {
+    background-color: #FDFFB2;
+}
+
+.carta_logo_javascript {
+    background-color: #FDFFC7;
+}
+
+.carta_python {
+    background-color: #518DE3;
+}
+
+.carta_logo_python {
+    background-color: #4F60F3;
+}
+
+.carta_java {
+    background-color: #A6CAFF;
+}
+
+.carta_logo_java {
+    background-color: #87B7FE;
+}
+
+.carta_swift {
+    background-color: #EF923C;
+}
+
+.carta_logo_swift {
+    background-color: #FEA554;
+}
+
+.carta_php {
+    background-color: #B8D5FF;
+}
+
+.carta_logo_php {
+    background-color: #C3DCFF;
+}
+
+.carta_csharp {
+    background-color: #A054FF80;
+}
+
+.carta_logo_csharp {
+    background-color: #DCC2FE;
+}
+
+.input_buscar {
+    width: 100%;
+    border: 2px solid;
+    border-radius: 100px;
+}
+
+.carta {
+    border: 2px solid;
+    border-radius: 50px;
+    box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.40);
+    height: 150px;
+}
+
+.bola {
+    border-radius: 100px;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 35%;
+    top: -31%;
+}
+
+.btn_nivel {
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+    color: black;
+}
+
+.btn_nivel:hover {
+    background-color: transparent;
+    color: #000;
+}
+
+.btn_java {
+    background-color: #87B7FE;
+    transition: none;
+}
+
+.btn_python {
+    background-color: #4F5FF3;
+}
+
+.btn_javascript {
+    background-color: #FDFFC7;
+}
+
+.btn_swift {
+    background-color: #FEA554;
+}
+
+.btn_php {
+    background-color: #C3DCFF;
+}
+
+.btn_c {
+    background-color: #DCC2FE;
+}
+
+.lenguaje_img {
+    top: 18%;
+    left: 20%;
+    position: relative;
+    width: 60%;
+}
+
+.seccion_lenguajes {
+    padding: 5%;
+}
+
+.logo {
+    width: 145px;
+    height: auto;
+}
+
+.imagen_menu {
+    height: 30%;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 5%;
+}
+
+.items_menu {
+    text-decoration: none;
+}
+.item{
+    background-color:#4C428C;
+    transition: 300ms;
+    border-radius: 20px;
+    height: 45px; 
+}
+.item:hover{
+    background-color:#5d51a9; 
+   
+}
+
+.menu {
+    background-color:#4C428C;
+    position: fixed;
+    height: 100vh;
+    z-index: 10;
+}
+
+.abrir-menu {
+    display: none;
+}
+
+.cerrar-menu {
+    width: 70px;
+    display: none;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (max-width: 577px) {
+    .abrir-menu {
+        display: block;
+    }
+
+    .cerrar-menu {
+        display: block;
+    }
+}
+
+@media screen and (min-width:992px) {
+    .busqueda {
+        margin-right: 11%;
+        padding-left: 0px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .abrir-menu {
+        display: block;
+    }
+
+    .cerrar-menu {
+        display: block;
+    }
+}

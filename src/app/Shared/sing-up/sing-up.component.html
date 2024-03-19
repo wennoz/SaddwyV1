@@ -1,0 +1,47 @@
+<div class="contanire-fluid overflow-hidden">
+    <div class="row p-2 fondo_atras">
+        <div  class="row col-11 col-lg-9 p-0 m-0 mt-4 fondo_delante mx-auto align-items-center">
+           
+
+            <div class="col-12 col-lg-6 text-center ">
+                <img src="../../../assets/logo_SaddWy_black.svg" class="imagen " alt="Logo de SaddWy">
+                <p class=" fs-lg-custom">¿Estas listo para iniciar en el mundo de la porgramación?</p>
+                <p class="fs-1 fw-bold">¡Bienvenido a SaddWy!</p>
+            </div>
+
+            <form [formGroup]="frmSingUp" class="col d-flex flex-column justify-content-center align-items-center formulario ">
+                <div class="mt-4 row col-12 d-md-flex justify-content-center col-lg-7">
+                    <div class="col-12  col-md-8 col-lg-12">
+                        <label class="form-label letra">Nombre completo:</label>
+                        <input class="form-control" formControlName="nombre" type="text">
+                    </div>
+                 
+                </div>
+                <div class="row col-12  mt-4 col-md-8 p-2 col-lg-7">
+                    <label class="form-label letra">Correo:</label>
+                    <input class="form-control" type="text" formControlName="correo">
+                </div>
+                <div class="row col-12 mt-4 col-md-8 p-2 col-lg-7">
+                    <label class="form-label letra">Contraseña:</label>
+                    <input class="form-control" type="password" formControlName="password">
+                </div>
+                <div class="row col-12 mt-4 col-md-8 p-2 col-lg-7">
+                    <label class="form-label letra">Confirmar contraseña:</label>
+                    <input class="form-control" type="password" formControlName="ConfirmarPassword">
+                </div>
+                <div class="row col-12 mt-4 col-md-5 col-lg-6 p-2">
+                    <button class="btn registrar letra" (click)="singUp()">Registrarse</button>
+                </div>
+                <div class="row col-12 mt-3 align-items-center col-md-8 ">
+                    <div class="linea col m-3  "></div>
+                    O
+                    <div class="linea col m-3"></div>
+                </div>
+                <div class="row col-12 mt-3 mb-5 col-md-5 col-lg-6 p-2">
+                    <button class="btn registrar letra"> <img src="../../Img/SaddWy_ilustraciones/Svg/icono_google.svg" class="google_png" >
+                        Continuar con Google</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

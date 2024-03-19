@@ -1,0 +1,70 @@
+* {
+    font-family: Petrona;
+}
+
+.fondo {
+    background: radial-gradient(249.51% 131.7% at 100% 90.72%, #602160 0%, #280652 76.04%);
+    height: 100vh;
+}
+
+.mensaje_error {
+    color: red;
+}
+
+
+.fondo_delante {
+    background: white;
+    border-radius: 40px;
+}
+
+.iconos {
+    max-width: 6%;
+    margin-right: 2%;
+}
+
+.ingresar_datos {
+    background-color: #ECDEF2;
+    width: 100%;
+}
+
+.iniciar_sesion {
+    background-color: #7757A0;
+    color: white;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.iniciar_sesion:hover {
+    border-color: #584079;
+}
+
+.recordar_password {
+    background-color: #ECDEF2;
+    margin-top: 2%;
+}
+
+.separador {
+    width: 44%;
+    height: 2px;
+    background-color: #000;
+    margin-top: 3%;
+}
+
+.google_png {
+    max-width: 8%;
+    margin-right: 4%;
+}
+
+.datos_incorrectos {
+    border-color: red;
+}
+
+.datos_incorrectos:focus {
+    border-color: red;
+    box-shadow: 0 0 10px red;
+}
+
+.imagen {
+    width: 260px;
+    height: auto;
+}

@@ -1,0 +1,73 @@
+* {
+    font-family: Petrona;
+    color: white;
+}
+
+.letra {
+    font-size: 1.25rem;
+}
+
+.parrafo {
+    width: 455px;
+}
+
+.fondo_atras {
+    height: 100vh;
+    background: radial-gradient(249.51% 131.7% at 100% 90.72%, #602160 0%, #280652 76.04%);
+}
+
+.fondo_delante {
+    background: linear-gradient(113deg, rgba(91, 29, 151, 0.90) -0.15%, #9A3A99 88.91%);
+}
+
+body {
+    color: white;
+}
+
+hr {
+    background: #F9C9AE;
+    opacity: 100%;
+    width: 389px;
+    height: 10px;
+    flex-shrink: 0;
+    margin: 10px;
+    border: 0px;
+}
+
+.titulo {
+    font-size: 60px;
+}
+
+.foto_fondo{
+    width: 500px;
+    height: 400px;
+}
+
+@media screen and (max-width:576px) {
+    .logo {
+        height: auto;
+        width: 100px;
+    }
+
+    a,
+    p {
+        font-size: 1px;
+    }
+
+    hr {
+        width: 200px;
+        height: 5px;
+    }
+
+    .letra {
+        font-size: .9rem;
+    }
+
+    .parrafo {
+        width: 80%;
+    }
+
+    .titulo {
+        font-size: 35px;
+    }
+}
