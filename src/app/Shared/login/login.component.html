@@ -1,41 +1,66 @@
-<div class="container-fluid pt-5 pb-1 fondo">
-    <form [formGroup]="frmLogin"
-        class="row col-12 col-md-7 col-lg-8 p-4 p-lg-0 mx-auto mt-md-1  my-5 flex-lg-column fondo_delante d-lg-flex align-items-center shadow">
-        <div class="row mt-5 text-center justify-content-center">
-            <img class="imagen" src="../../Img/SaddWy_ilustraciones/Svg/logo_SaddWy_black.svg" alt="">
-            <p class="mensaje_error" id="mensaje_error"></p>
+<div class="fondo">
+
+    <main>
+        <div class="container">
+
+            <section
+                class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-2">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+                            <div class="card mb-3 px-5 rounded-5 col-12 col-lg-9">
+
+                                <div class="card-body text-center">
+
+                                    <img class="logo w-50 my-3" src="../../../assets/logo_SaddWy_black.svg" alt="">
+                                    <p *ngIf="error" class="error">Credenciales incorrectas</p>
+                                    <p *ngIf="incompletos" class="error">Completa los campos </p>
+                                    <form [formGroup]="frmLogin" class="row g-3 needs-validation my-4 d-flex flex-column" novalidate>
+
+                                        <div class="col-12 col-lg-8 text-start mx-auto">
+                                            <img class="img-fluid icono-iniciar-sesion mx-1"
+                                                src="../../../assets/icono_email_iniciar.svg" >
+                                            <label for="yourUsername" class="form-label">Correo:</label>
+                                            <div class="input-group has-validation">
+                                                <input [ngClass]="{'inputError':incompletos}" type="text" formControlName="email" name="username" class="form-control"
+                                                    id="yourUsername" required style="background-color: #ECDEF2;">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-lg-8 text-start mx-auto">
+                                            <img class="img-fluid icono-iniciar-sesion mx-1"
+                                                src="../../../assets/icono_password.svg" alt="">
+                                            <label for="yourPassword" class="form-label">Contraseña:</label>
+                                            <input [ngClass]="{'inputError':incompletos}"  type="password" formControlName="password" name="password" class="form-control"
+                                                id="yourPassword" required style="background-color: #ECDEF2;">
+                                        </div>
+                                        <div class="col-12 col-lg-8 my-4 mx-auto">
+                                            <button (click)="login()" class="btn w-100 rounded-5 text-white iniciar-sesion"
+                                                type="submit">Iniciar
+                                                sesión</button>
+                                        </div>
+                                        <div class="row mx-auto py-0 ps-2 col-8 d-flex align-items-center">
+                                            <div class="col col-lg-5 mx-2" style="height: 2px; background-color: #000000;">
+                                            </div>
+                                            O
+                                            <div class="col col-lg-5 mx-2" style="height: 2px; background-color: #000000;">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-0 text-center">
+                                            <a class="text-black" href="">¿Has olvidado tu contraseña?</a>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
         </div>
-        <div class="row col-12  col-lg-5 mt-4">
-            <label class="form-label fs-4 m-0"><img class="mb-2 iconos" src="../../Img/SaddWy_ilustraciones/Svg/icono_email.svg">Correo</label>
-            <input class="form-control ingresar_datos" type="text" id="usuario_txt" formControlName="email">
-        </div>
-        <div class="row col-12 col-lg-5 mt-4">
-            <label class="form-label fs-4 m-0"><img class="mb-2 iconos"
-                    src="../../Img/SaddWy_ilustraciones/Svg/icono_password.svg">Contraseña</label>
-            <input class="form-control ingresar_datos" type="password" id="password_txt" formControlName="password">
-        </div>
-        <div class="row col-12 col-lg-5 mt-3 ms-5">
-            <div class="form-check">
-                <input class="form-check-input recordar_password" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label fs-5" for="flexCheckDefault">
-                    Recordar contraseña
-                </label>
-            </div>
-        </div>
-        <div class="row col-12 col-lg-5 mb-2">
-            <button class="btn iniciar_sesion fs-4" (click)="login()" >Iniciar sesión</button>
-        </div>
-        <div class="row col-lg-5 mt-2">
-            <div class=" col separador m-3"></div>
-            O
-            <div class="col separador m-3"></div>
-        </div>
-        <div class="row col-12 col-lg-5 mb-4 mt-2">
-            <button class="btn iniciar_sesion fs-4"><img src="../../Img/SaddWy_ilustraciones/Svg/icono_google.svg" class="google_png">Continuar
-                con google</button>
-        </div>
-        <div class="row col-12 col-lg-5 text-center mb-4 me-1">
-            <a href="Recuperar_password.html">¿Has olvidado la contraseña?</a>
-        </div>
-    </form>
+    </main>
 </div>

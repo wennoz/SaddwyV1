@@ -1,0 +1,68 @@
+<div>
+
+    <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-2">
+
+        <i id="botonCerrar" class="bi bi-list toggle-sidebar-btn"></i>
+
+       
+
+        <nav class="header-nav">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="ilustrasiones/fotos_de_usuario_1.svg" alt="Profile" class="rounded-circle"
+                            style="width: 36px;">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">Nombre de usuario</span>
+                    </a><!-- End Profile Iamge Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Cerrar sesión</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <aside id="sidebar" class="sidebar navegation z-3">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <i onclick="cerrar()" id="botonCerrar2" class="bi bi-x-lg toggle-sidebar-btn" style="color: white;"></i>
+            <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
+            <li class="nav-item mb-5">
+                <a class="nav-link collapsed" routerLink="evaluaciones"  style="background-color: transparent">
+                    <img class="icono-menu" src="ilustrasiones/icono_inicio_white.svg" alt="">
+                    <span class="text-white">Evaluaciones</span>
+                </a>
+            </li>
+            <li class="nav-item my-5">
+                <a class="nav-link collapsed" routerLink="usuarios" style="background-color: transparent">
+                    <img class="icono-menu" src="ilustrasiones/icono_perfil_white.svg" alt="">
+                    <span class="text-white">Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item my-5" routerLink="lenguajes">
+                <a class="nav-link collapsed" routerLink="/lenguajes" style="background-color: transparent">
+                    <img class="icono-menu" src="ilustrasiones/icono_email_white.svg" alt="">
+                    <span class="text-white">Lenguajes</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main id="main" class="main">
+        <router-outlet></router-outlet>
+    </main>
+</div>

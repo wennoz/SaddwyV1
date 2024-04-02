@@ -1,0 +1,24 @@
+.ranking {
+    border: 1px solid #4c428c;
+    color: #4c428c;
+}
+
+.guia-podio{
+    width: 70%; 
+    height: 2px; 
+    background-color: #4C428C;
+}
+.borde-foto {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 25px auto;
+    border: 10px solid #4C428C;
+}
+
+@media (max-width: 768px) {
+    .guia-podio{
+        width: 60%;
+    }
+}

@@ -1,0 +1,63 @@
+<div class="container">
+    <h3>Crear nivel</h3>
+    <div class="row d-flex justify-content-between">
+        <div class="col">
+            <label for="">Titulo del nivel</label>
+            <input class="form-control me-5" type="text" placeholder="Nivel">
+        </div>
+        <div class="col">
+            <label>Selecciona el lenguaje</label>
+            <select class="form-select">
+                <option value="">Seleciona el lenguaje al que pertenece</option>
+                <option value="">JavaScripy</option>
+                <option value="">Java</option>
+            </select>
+        </div>
+    </div>
+    <div class="carta mt-3">
+        <div class="formulario">
+            <h4>Crea una pregunta</h4>
+            <div>
+                <textarea class="form-control" [(ngModel)]="enunciado" cols="2" rows="3"
+                    placeholder="Escribe el enunciado"></textarea>
+                <input class="form-control my-1" [(ngModel)]="tituloPregunta" type="text"
+                    placeholder="Escribe la pregunta">
+                <div class="row d-flex ">
+                    <ul class="col-10 listRespuesta">
+                        <li *ngFor="let respuesta of respuestas; let i= index" class="respuesta my-1">
+                            <button (click)="eliminarRespuesta(i)" class="btn-eliminar ">x</button>
+                            <input class="form-control " type="text" id="i" [(ngModel)]="respuesta.respuesta"
+                                placeholder="Opción">
+                            <div class="form-check form-switch m-1">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault" [(ngModel)]="respuesta.correcta"
+                                    [checked]="respuesta.correcta">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="col-1">
+                        <button (click)="agregarRespuesta()" class="btn-agregar my-2">+</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button *ngIf="!editar" class="btn btn-primary w-100" (click)="agregarPregunta()"> Agregar pregunta</button>
+                <button *ngIf="editar" class="btn btn-primary w-100" (click)="editarPregunta()">editar</button>
+            </div>
+        </div>
+        <div class="preguntas" >
+                <h4>Todas las preguntas que creaste</h4>
+                <div class=" item px-1" *ngFor="let pregunta of listPreguntas; let i =index">
+                    <button (click)="eliminarPregunta(i)" class="btn-eliminar mx-1 ">x</button>
+                    <div class="item-titulo p-0 m-0">
+                        <p class="p-0 m-0">{{pregunta.nombre}}</p>
+                        <p class="text-secondary m-0 p-o">Cantidad de preguntas {{pregunta.respuestas.length}}</p>
+                    </div>
+                    <button class="btn btn-primary" (click)="ver(i)">Ver</button>
+                </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary">Agregar evalucion</button>
+    </div>
+</div>

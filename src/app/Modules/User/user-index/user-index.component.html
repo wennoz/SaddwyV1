@@ -1,0 +1,85 @@
+<div>
+
+    <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-1">
+
+        <button id="botonCerrar" (click)="mostrar()" class="lg-d-none btn-close toggle-sidebar-btn"></button>
+
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
+
+        <nav class="header-nav">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="{{user.foto}}" alt="Profile" class="rounded-circle"
+                            style="width: 36px;">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">{{user.nombre}}</span>
+                    </a><!-- End Profile Iamge Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span (click)="logout()">Cerrar sesión</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <aside id="sidebar" *ngIf="ocultar" class="sid navegation z-3">
+        <ul class="sidebar-nav" id="sidebar-nav">
+            <button (click)="mostrar()" id="botonCerrar2" class="d-block d-lg-none" style="color: white;">x</button>
+            <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
+            <li class="nav-item mb-5">
+                <a class="nav-link collapsed" routerLink="principal" style="background-color: transparent">
+                    <img class="icono-menu" src="../../../../assets/icono_inicio_white.svg" alt="">
+                    <span class="text-white">Inicio</span>
+                </a>
+            </li>
+            <li class="nav-item my-5">
+                <a class="nav-link collapsed" routerLink="perfil" style="background-color: transparent">
+                    <img class="icono-menu" src="../../../../assets/icono_perfil_white.svg" alt="">
+                    <span class="text-white">Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item my-5">
+                <a class="nav-link collapsed" href="https://mail.google.com" style="background-color: transparent">
+                    <img class="icono-menu" src="../../../../assets/icono_email_white.svg" alt="">
+                    <span class="text-white">Contáctenos</span>
+                </a>
+            </li>
+            <li class="nav-item my-5">
+                <a class="nav-link collapsed" routerLink="ranking" style="background-color: transparent">
+                    <img class="icono-menu" src="../../../../assets/icono_ranking_white.svg" alt="">
+                    <span class="text-white">Ranking</span>
+                </a>
+            </li>
+            <li class="nav-item my-5">
+                <a class="nav-link collapsed" routerLink="manual" style="background-color: transparent">
+                    <img class="icono-menu" src="../../../../assets/icono_manual_white.svg" alt="">
+                    <span class="text-white">Manual</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main id="main" class="main">
+        <router-outlet></router-outlet>
+    </main>
+</div>

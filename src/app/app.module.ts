@@ -7,12 +7,25 @@ import { LoginComponent } from './Shared/login/login.component';
 import { SingUpComponent } from './Shared/sing-up/sing-up.component';
 import { HomePageComponent } from './Shared/home-page/home-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserIndexComponent } from './Modules/user-index/user-index.component';
-import { HttpClientModule } from '@angular/common/http';
-import { PrincipalComponent } from './Modules/principal/principal.component';
+import { UserIndexComponent } from './Modules/User/user-index/user-index.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { PrincipalComponent } from './Modules/User/principal/principal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { PerfilComponent } from './Modules/perfil/perfil.component';
+import { PerfilComponent } from './Modules/User/perfil/perfil.component';
+import { FooterComponent } from './Shared/footer/footer.component';
+import { RankingComponent } from './Modules/User/ranking/ranking.component';
+import { RecuperarPasswordComponent } from './Shared/recuperar-password/recuperar-password.component';
+import { ConfirmarPasswordComponent } from './Shared/confirmar-password/confirmar-password.component';
+import { PreguntaComponent } from './Modules/User/pregunta/pregunta.component';
+import { IndexAdminComponent } from './Modules/Admin/index-admin/index-admin.component';
+import { EvaluacionesComponent } from './Modules/Admin/evaluaciones/evaluaciones.component';
+import { AgregarEvaluacionesComponent } from './Modules/Admin/agregar-evaluaciones/agregar-evaluaciones.component';
+import { UsuariosComponent } from './Modules/Admin/usuarios/usuarios.component';
+import { LenguajesComponent } from './Modules/Admin/lenguajes/lenguajes.component';
+import { ManualComponent } from './Modules/User/manual/manual.component';
+import { TokenInterceptor } from './Core/token.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +35,18 @@ import { PerfilComponent } from './Modules/perfil/perfil.component';
     HomePageComponent,
     UserIndexComponent,
     PrincipalComponent,
-    PerfilComponent
+    PerfilComponent,
+    FooterComponent,
+    RankingComponent,
+    RecuperarPasswordComponent,
+    ConfirmarPasswordComponent,
+    PreguntaComponent,
+    IndexAdminComponent,
+    EvaluacionesComponent,
+    AgregarEvaluacionesComponent,
+    UsuariosComponent,
+    LenguajesComponent,
+    ManualComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +58,13 @@ import { PerfilComponent } from './Modules/perfil/perfil.component';
     ToastrModule.forRoot(),
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

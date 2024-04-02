@@ -1,0 +1,71 @@
+<div class="container-fluid justify-content-center">
+  <div class="d-flex justify-content-center">
+    <a class="volver " href="principal.html">
+      <img src="ilustrasiones/icono_volver.svg" alt="">
+    </a>
+    <h3 class="mx-3 mt-1">Javascript: Variable</h3>
+  </div>
+  <div class="progress col-11 col-md-10 col-lg-8 mt-5 mx-auto ">
+    <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75"
+      aria-valuemin="0" aria-valuemax="100" style=" background-color: #3D9DF2;" [style.width.%]="posentaje"></div>
+  </div>
+  <!--Card rotatoria-->
+  <div *ngIf="!voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color" id="card" style="height: 350px;">
+    <div class="d-flex justify-content-between my-2">
+      <h3>Titulo enunciado</h3>
+      <button class="btn btn-primary p-2" (click)="girar()"> Ver </button>
+    </div>
+    <p>
+      {{pregunta.enunciado}}
+    </p>
+  </div>
+  <div *ngIf="voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color " id="card2" style="height: 350px;">
+    <div class="d-flex justify-content-between">
+      <h3>{{pregunta.pregunta}}</h3>
+      <button class="btn btn-primary p-2" (click)="girar()">ver información</button>
+    </div>
+    <p>
+      Según lo leído anteriormente: <br><br>
+      Es correcto afirmar que:
+    </p>
+  </div>
+  <p *ngIf="error" class="text-danger text-center">Debes seleccionar una respuesta</p>
+  <p *ngIf="error2" class="text-danger text-center">Debes seleccionar la respuesta correcta</p>
+  <div class=" mt-4 mx-5 my-5 d-flex flex-column align-items-center">
+    <button *ngFor="let respuesta of pregunta.respuestas; let i=index" (click)="selecionar(i)"
+      ngClass="{{respuesta.clase}}" class="col-12 col-md-7 col-lg-8 me-3 mb-2">
+      {{respuesta.respuesta}}
+    </button>
+  </div>
+
+  <div class="col-12 bg-dark mt-5 opacity-25 separador"></div>
+  <div class="mt-2 pt-5 d-flex justify-content-center">
+    <button class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white" data-bs-toggle="modal"
+      data-bs-target="#exampleModal" (click)="siguiente()">Siguiente</button>
+  </div>
+
+</div>
+<!-- modal  -->
+<div *ngIf="cantidad==position+1" class="modal modal-xl " id="exampleModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body overflow-hidden">
+        <div class="d-flex justify-content-end d-none">
+          <button type="button" #cerrar class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="celebracion"> 
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 w-100 h-100 contenido">
+          <img src="../../../../assets/trofeo3.svg" alt="trofeo">
+          <h1>Felicidades terminaste la prueba </h1>
+          <p>Tus puntos en esta prueba son {{intentos}}</p>
+          <div class="d-flex">
+            <button (click)="seguirAprendiendo()" class="btn btn-primary mx-1">Seguir aprendiendo</button>
+            <button (click)="irRanking()"class="btn btn-primary mx-1">Ver el ranking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

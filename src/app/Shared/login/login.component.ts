@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/Core/auth.service';
 })
 export class LoginComponent implements OnInit{
   public frmLogin: FormGroup;
+  public error=false;
+  public incompletos=false;
 
   constructor(private authService:AuthService, private router: Router,private toastr: ToastrService){
     this.frmLogin=new FormGroup({
@@ -27,18 +29,18 @@ export class LoginComponent implements OnInit{
       "password": this.frmLogin.controls['password'].value
     }
     if (this.frmLogin.invalid) {
-      this.toastr.error('Completa los campos por favor','SaddWy')
+      this.incompletos=true;
       return
     }
     this.authService.login(credentials).subscribe(result => {
       let dato=result.dato
-      console.log(dato)
+      localStorage.setItem('token',dato.acceso)
+      localStorage.setItem('refreshToken',dato.actualizar)
       localStorage.setItem("user",JSON.stringify(dato));
       this.router.navigateByUrl('dashboard')
     },
       error => {
-        
-        this.toastr.error(error.error.mensaje, 'SaddWy')
+        this.error=true;
         console.log(error)
       });
     

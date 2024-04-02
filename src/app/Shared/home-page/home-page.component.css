@@ -1,73 +1,124 @@
-* {
-    font-family: Petrona;
+.body, .inicio-sesion, .registro {
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
 
-.letra {
-    font-size: 1.25rem;
-}
-
-.parrafo {
-    width: 455px;
-}
-
-.fondo_atras {
-    height: 100vh;
+.body {
     background: radial-gradient(249.51% 131.7% at 100% 90.72%, #602160 0%, #280652 76.04%);
+    height: 100vh;
+    padding: 4%;
+    display: flex;
 }
 
-.fondo_delante {
+.contenedor-delantero {
     background: linear-gradient(113deg, rgba(91, 29, 151, 0.90) -0.15%, #9A3A99 88.91%);
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+
 }
 
-body {
-    color: white;
+.header-saddwy {
+    padding: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imagen-logo {
+    width: 220px;
+    height: auto;
+}
+
+.inicio-sesion {
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.registro {
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0px 30px;
+}
+
+.bienvenido {
+    padding: 10%;
+}
+
+.letra-titulo {
+    font-size: 40px;
+    padding-left: 25%;
+}
+
+.letra-parrafo {
+    font-size: 20px;
 }
 
 hr {
-    background: #F9C9AE;
-    opacity: 100%;
-    width: 389px;
-    height: 10px;
-    flex-shrink: 0;
-    margin: 10px;
-    border: 0px;
+    background: #3D9DF2;
+    border: #3D9DF2;
+    height: 7px;
+    width: 66%;
+    margin: auto 0%;
 }
 
-.titulo {
-    font-size: 60px;
+.img-logo {
+    width: 150px;
+    height: auto;
 }
 
-.foto_fondo{
-    width: 500px;
+.cuerpo {
+    display: flex;
+}
+
+.contenedor-foto {
+    padding-top: 95px;
+}
+
+.img-muñeca {
     height: 400px;
+    width: auto;
 }
 
-@media screen and (max-width:576px) {
-    .logo {
-        height: auto;
-        width: 100px;
+@media(max-width: 768px){
+    .body{
+     height: 121vh;
     }
-
-    a,
-    p {
-        font-size: 1px;
+    .img-muñeca{
+     height: 300px;
+     width: auto;
+     
     }
-
-    hr {
-        width: 200px;
-        height: 5px;
+    .contenedor-foto{
+     padding: 15px;
+     
     }
-
-    .letra {
-        font-size: .9rem;
+    .cuerpo{
+     display: block;
+     padding-left: 60px;
     }
-
-    .parrafo {
-        width: 80%;
-    }
-
-    .titulo {
-        font-size: 35px;
-    }
-}
+ }
+ 
+ @media(max-width: 576px){
+     .imagen-logo{
+         width: 100px;
+         height: auto;
+     }
+ 
+ 
+     .inicio-sesion{
+         font-size: 15px;
+     }
+     .registro{
+         font-size: 15px;
+     }
+     .img-muñeca{
+         height: 200px;
+         width: auto;
+     }
+ 
+     .cuerpo{
+         padding-left: 25px;
+     }
+ }

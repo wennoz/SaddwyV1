@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+/* Estilos para el textarea */
+#codigo {
+    background-color: #222b39; /* Fondo azul oscuro */
+    color: #ffffff; /* Texto blanco */
+    border: none; /* Eliminar borde por defecto */
+    padding: 10px; /* Espacio interno */
+    font-family: monospace; /* Fuente de tipo monoespaciada para mantener la alineación */
+  }
+  
+.borde {
+    border: solid 2px #68FC65;
+}
+
+.container {
+    transform-style: preserve-3d;
+}
+
+.barra_progreso {
+    width: 0%;
+    background-color: #68FC65;
+}
+
+.tarjeta_delantera {
+    height: 200px;
+}
+
+.tarjeta_trasera {
+    height: 200px;
+}
+
+.separador {
+    height: 2px;
+}
+
+.boton {
+    border: none;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #7757A0;
+    color: white;
+    font: bold;
+    transition: 200ms;
+}
+
+
+.boton:hover{
+    border: solid 1px #7757A0;
+    background-color: white;
+    color: #7757A0;
+}
+.error{
+    border: solid 1px red;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(243, 107, 107);
+    color:white;
+    font: bold;
+    transition: 200ms; 
+    box-shadow: 2px 2px 5px red;
+    
+}
+
+.correcto {
+    height: 50px;
+    border-radius: 10px;
+    background-color: #edf9e3;
+    border:solid 3px #58CC02;
+    box-shadow: 2px 2px 5px #a3eea6;
+    color: #58CC02;
+}
+.btnSiguiente{
+    border: none;
+    height: 50px;
+    width: 300px;
+    border-radius: 30px;
+    background-color: #3D9DF2;
+    color: white;
+    font: bold;
+    transition: 200ms;
+}
+.btnSiguiente:hover{
+    background-color: #4696db;
+}
+.celebracion{
+    top: -200px; /* Ajusta la posición inicial según tu diseño */
+    background-image: url('../../../../assets/confetti.jpg');
+    height: 500px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: repeat-x; /* Repetir horizontalmente */
+    animation: confetti-fall 3s linear; 
+    background-color: transparent;
+    overflow: hidden;
+}
+@keyframes confetti-fall {
+    0% {
+      transform: translateY(-550px); /* Posición inicial fuera del modal */
+    }
+    100% {
+      transform: translateY(0%); /* Posición final dentro del modal */
+    }
+  }
+.contenido img{
+    width: auto;
+    height: 200px;
+}
+
+
+.Conti {
+    border-radius: 100px;
+    background-color: #3D9DF2;
+    /* filter: drop-shadow(0px 8px 4px #3D9DF2); */
+}
+
+.Conti.clicked {
+    background-color: #7757A0;
+}
+
+.volver {
+    margin-top: 5px;
+    margin-right: 85%;
+    position: absolute;
+    padding: 1%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 90ms;
+}
+.color{
+    background-color: #F7F0FF;
+}
+
+.volver:hover{
+    border: 1px solid #58CC02;
+    border-radius: 30px;
+    background-color: #cdecb5;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width:997px){
+  .volver{
+    margin-right: 90%;
+  }  
+}

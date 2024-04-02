@@ -1,0 +1,120 @@
+<section class="section">
+  <div class="row g-0 rounded-5 mb-5" style="background-color: #DCC2FE;">
+    <div class="col-md-4 borde-foto">
+      <img src="{{user.usuario.foto}}" class="img-fluid rounded-circle" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body d-flex align-items-center flex-column">
+        <h5 class="card-title my-1 fs-3 ms-5">{{user.usuario.nombre}}</h5>
+        <div class="row d-flex justify-content-center align-items-center my-2 me-1">
+          <img class="icono-menu m-0" src="../../../../assets/icono_reloj.svg" alt="">Se unió {{user.usuario.registro}}
+        </div>
+        <div class="row d-flex justify-content-center align-items-center my-2 me-5">
+          <img class="icono-menu m-0" src="../../../../assets/icono_email_black.svg" alt="">{{user.usuario.correo}}
+        </div>
+        <button class="btn my-3 p-3 text-white actualizar" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Actualizar mi información</button>
+      </div>
+    </div>
+  </div>
+  <div class="row ms-3 my-5">
+    <h5>Días de racha</h5>
+    <div class="row col-10 col-lg-7 border border-black rounded-5 p-2">
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center"
+        [ngClass]="{'racha': racha.Lunes, 'dia': !racha.Lunes}">L</div>
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center "
+        [ngClass]="{'racha': racha.Martes, 'dia': !racha.Martes}">M</div>
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center "
+        [ngClass]="{'racha': racha.Miercoles, 'dia': !racha.Miercoles}">M</div>
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center "
+        [ngClass]="{'racha': racha.Jueves, 'dia': !racha.Jueves}">J</div>
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center "
+        [ngClass]="{'racha': racha.Viernes, 'dia': !racha.Viernes}">V</div>
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center "
+        [ngClass]="{'racha': racha.Sabado, 'dia': !racha.Sabado}">S</div>
+      <div class="col-1 mx-2 p-0 rounded-circle d-flex justify-content-center align-items-center "
+        [ngClass]="{'racha': racha.Domingo, 'dia': !racha.Domingo}">D</div>
+    </div>
+  </div>
+  <div class="row my-5 border border-1 border-black rounded-5">
+    <div *ngFor="let lenguaje of listProgreso" class="card mb-3" style="box-shadow: none; background-color: transparent;">
+      <div class="row g-0">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <img src="../../../../assets/java.svg" class="img-fluid rounded-start" alt="..." style="width: 25%;">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{lenguaje.lenguajeNombre}}</h5>
+            <div class="progress mt-3">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width.%]="lenguaje.progresoLenguaje">
+                {{lenguaje.progresoLenguaje}}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal fade modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar perfil</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-12 d-flex flex-column align-items-center justify-content-center">
+
+            <div class="card mb-3 p-5 rounded-5">
+              <div class="row">
+                <div class="card col-md-6 border rounded-5 pb-4">
+                  <h5 class="card-title text-center pb-0 fs-4">Actualizar mi foto</h5>
+                  <div class="borde-foto" >
+                    <img class="rounded-circle img-fluid" src="{{user.usuario.foto}}" alt="...">
+                  </div>
+                  <input class="d-none " #abrir type="file" id="formFile">
+                  <button class="btn btn-primary" (click)="abrirFile()">Seleccionar archivo</button>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <div class="pt-4 pb-2">
+                      <h5 class="card-title text-center py-0 fs-4">Actualizar mis datos</h5>
+                    </div>
+
+                    <form class="row g-3 needs-validation" novalidate>
+                      <div class="col-12">
+                        <label for="yourName" class="form-label">Nombre:</label>
+                        <input type="text" name="name" class="form-control" id="yourName" required
+                          style="background-color: #ECDEF2;">
+                      </div>
+
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Contraseña:</label>
+                        <input type="password" name="password" class="form-control" id="yourPassword" required
+                          style="background-color: #ECDEF2;">
+                      </div>
+
+                      <div class="col-12">
+                        <label for="yourPassword" class="form-label">Confirmar contraseña:</label>
+                        <input type="password" name="password" class="form-control" id="yourPassword" required
+                          style="background-color: #ECDEF2;">
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
