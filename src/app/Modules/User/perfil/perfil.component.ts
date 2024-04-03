@@ -8,16 +8,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class PerfilComponent implements OnInit {
   @ViewChild('abrir') abrir!: ElementRef;
   user:any
-  racha:any
-  listProgreso:any = []
   constructor(){
   }
   ngOnInit(): void {
     let usu=localStorage.getItem('user')
     if (usu) {
       this.user=JSON.parse(usu);
-      this.racha=this.user.usuario.racha
-      this.listProgreso=this.user.progreso
     }
     console.log(this.user);
     

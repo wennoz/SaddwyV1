@@ -7,7 +7,6 @@ import { LoginComponent } from './Shared/login/login.component';
 import { SingUpComponent } from './Shared/sing-up/sing-up.component';
 import { HomePageComponent } from './Shared/home-page/home-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserIndexComponent } from './Modules/User/user-index/user-index.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PrincipalComponent } from './Modules/User/principal/principal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +24,7 @@ import { UsuariosComponent } from './Modules/Admin/usuarios/usuarios.component';
 import { LenguajesComponent } from './Modules/Admin/lenguajes/lenguajes.component';
 import { ManualComponent } from './Modules/User/manual/manual.component';
 import { TokenInterceptor } from './Core/token.interceptor';
+import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
 
 
 @NgModule({
@@ -33,7 +33,6 @@ import { TokenInterceptor } from './Core/token.interceptor';
     LoginComponent,
     SingUpComponent,
     HomePageComponent,
-    UserIndexComponent,
     PrincipalComponent,
     PerfilComponent,
     FooterComponent,
@@ -47,6 +46,7 @@ import { TokenInterceptor } from './Core/token.interceptor';
     UsuariosComponent,
     LenguajesComponent,
     ManualComponent,
+    UserBaseComponent,
   ],
   imports: [
     BrowserModule,

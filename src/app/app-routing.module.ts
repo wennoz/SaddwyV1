@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Shared/login/login.component';
 import { SingUpComponent } from './Shared/sing-up/sing-up.component';
 import { HomePageComponent } from './Shared/home-page/home-page.component';
-import { UserIndexComponent } from './Modules/User/user-index/user-index.component';
 import { PrincipalComponent } from './Modules/User/principal/principal.component';
 import { PerfilComponent } from './Modules/User/perfil/perfil.component';
 import { RankingComponent } from './Modules/User/ranking/ranking.component';
@@ -17,6 +16,7 @@ import { LenguajesComponent } from './Modules/Admin/lenguajes/lenguajes.componen
 import { PreguntaComponent } from './Modules/User/pregunta/pregunta.component';
 import { ManualComponent } from './Modules/User/manual/manual.component';
 import { AuthGuard } from './Core/auth.guard';
+import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
 
 
 
@@ -42,20 +42,20 @@ const routes: Routes = [
     component: ConfirmarPasswordComponent
   },
   {
-    path: 'preguntas',
+    path: 'pregunta/:id',
     component: PreguntaComponent,
     canActivate:[AuthGuard]
   },
   {
     path: 'dashboard',
-    component: UserIndexComponent,
-    // canActivate:[AuthGuard],
+    component:UserBaseComponent,
+    canActivate:[AuthGuard],
     children: [
-      // {
-      //   path: '',
-      //   redirectTo: 'principal', // Redireccionar a evaluaciones por defecto
-      //   pathMatch: 'full'
-      // },
+      {
+        path: '',
+        redirectTo: 'principal', // Redireccionar a evaluaciones por defecto
+        pathMatch: 'full'
+      },
       {
         path: 'principal',
         component: PrincipalComponent

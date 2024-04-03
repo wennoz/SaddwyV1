@@ -1,1 +1,42 @@
-<p>manual works!</p>
+
+  <main id="main" class="main">
+
+    <section class="section">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Tabs</h5>
+
+              <!-- Default Tabs -->
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                    type="button" role="tab" aria-controls="home" aria-selected="true">Funciones</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false" tabindex="-1">Instalación</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-2" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <embed class="col-12" src="funciones.pdf" type="application/pdf" style="height: 100vh;">
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <embed class="col-12" src="funciones.pdf" type="application/pdf" style="height: 100vh;">
+                </div>
+              </div><!-- End Default Tabs -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>

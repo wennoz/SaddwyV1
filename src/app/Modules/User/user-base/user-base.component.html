@@ -2,9 +2,9 @@
 
     <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-1">
 
-        <button id="botonCerrar" (click)="mostrar()" class="lg-d-none btn-close toggle-sidebar-btn"></button>
+        <button id="botonCerrar"  class="lg-d-none btn-close toggle-sidebar-btn"></button>
 
-        <div class="search-bar">
+        <div class="search-bar" *ngIf="barra">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
@@ -30,9 +30,9 @@
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a (click)="loyaut()" class="dropdown-item d-flex align-items-center" href="#">
                                 <i class="bi bi-box-arrow-right"></i>
-                                <span (click)="logout()">Cerrar sesión</span>
+                                <span >Cerrar sesión</span>
                             </a>
                         </li>
 
@@ -43,9 +43,9 @@
         </nav><!-- End Icons Navigation -->
 
     </header><!-- End Header -->
-    <aside id="sidebar" *ngIf="ocultar" class="sid navegation z-3">
+    <aside id="sidebar"  class="sid navegation z-3">
         <ul class="sidebar-nav" id="sidebar-nav">
-            <button (click)="mostrar()" id="botonCerrar2" class="d-block d-lg-none" style="color: white;">x</button>
+            <button  id="botonCerrar2" class="d-block d-lg-none" style="color: white;">x</button>
             <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
             <li class="nav-item mb-5">
                 <a class="nav-link collapsed" routerLink="principal" style="background-color: transparent">
@@ -80,6 +80,6 @@
         </ul>
     </aside>
     <main id="main" class="main">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
 </div>

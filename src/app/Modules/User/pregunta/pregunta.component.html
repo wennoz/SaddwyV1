@@ -3,7 +3,7 @@
     <a class="volver " href="principal.html">
       <img src="ilustrasiones/icono_volver.svg" alt="">
     </a>
-    <h3 class="mx-3 mt-1">Javascript: Variable</h3>
+    <h2 class="mx-3 mt-1">{{pregunta.nivel.nombre}} </h2>
   </div>
   <div class="progress col-11 col-md-10 col-lg-8 mt-5 mx-auto ">
     <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75"
@@ -12,17 +12,17 @@
   <!--Card rotatoria-->
   <div *ngIf="!voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color" id="card" style="height: 350px;">
     <div class="d-flex justify-content-between my-2">
-      <h3>Titulo enunciado</h3>
+      <h3>{{pregunta.nivel.detalle}}</h3>
       <button class="btn btn-primary p-2" (click)="girar()"> Ver </button>
     </div>
     <p>
-      {{pregunta.enunciado}}
+      {{pregunta.explanation}}
     </p>
   </div>
   <div *ngIf="voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color " id="card2" style="height: 350px;">
     <div class="d-flex justify-content-between">
-      <h3>{{pregunta.pregunta}}</h3>
-      <button class="btn btn-primary p-2" (click)="girar()">ver información</button>
+      <h5>{{pregunta.pregunta}}</h5>
+      <button class="btn btn-primary p-2 h-50" (click)="girar()">Material de apollo</button>
     </div>
     <p>
       Según lo leído anteriormente: <br><br>
@@ -32,7 +32,7 @@
   <p *ngIf="error" class="text-danger text-center">Debes seleccionar una respuesta</p>
   <p *ngIf="error2" class="text-danger text-center">Debes seleccionar la respuesta correcta</p>
   <div class=" mt-4 mx-5 my-5 d-flex flex-column align-items-center">
-    <button *ngFor="let respuesta of pregunta.respuestas; let i=index" (click)="selecionar(i)"
+    <button *ngFor="let respuesta of respuestas; let i=index" (click)="selecionar(i)"
       ngClass="{{respuesta.clase}}" class="col-12 col-md-7 col-lg-8 me-3 mb-2">
       {{respuesta.respuesta}}
     </button>
