@@ -14,23 +14,12 @@
     border-radius: 40px 40px 40px 40px;
 }
 
-.registrar {
+.iniciar-sesion {
     background-color: #7757A0;
-    color: white;
-    border-radius: 50px;
-    transition: 0.4s;
 }
 
-.registrar:hover {
-    border-color: #7757A0;
-}
-
-* {
-    font-family: petrona;
-}
-
-.letra {
-    font-size: 1rem;
+.iniciar-sesion:hover {
+    background-color: #9A3A99;
 }
 
 .linea {
@@ -41,19 +30,9 @@
 }
 
 
-
 .google_png {
     max-width: 8%;
     margin-right: 4%;
-}
-
-.imagen {
-    height: auto;
-    width: 150px;
-}
-
-.fs-lg-custom {
-    font-size: 1rem;
 }
 
 @media screen and (min-width: 992px) {
