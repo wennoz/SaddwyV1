@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private urlBase = 'http://127.0.0.1:8000/api/v01/user/';
+  private urlBase = 'http://127.0.0.1:8000/api/v01/';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {
@@ -16,7 +16,7 @@ export class UsuarioService {
     return this.Http.get<any>(this.urlBase,{ headers :this.httpHeader })
   }
   save(data:any) {
-      return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
+      return this.Http.post<any>(this.urlBase+"register/",data,{headers :this.httpHeader})
   }
 
   getById(id:number) {
