@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TokenRefreshService } from './token-refresh.service';
+import { RankingService } from './ranking.service';
 
-describe('TokenRefreshService', () => {
-  let service: TokenRefreshService;
+describe('RankingService', () => {
+  let service: RankingService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TokenRefreshService);
+    service = TestBed.inject(RankingService);
   });
 
   it('should be created', () => {

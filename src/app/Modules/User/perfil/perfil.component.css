@@ -32,3 +32,11 @@
     width: 10%;
     margin-right: 3%;
 }
+.perfil{
+    border: 10px solid #4C428C; 
+    height: 200px; 
+    width: 350px;
+}
+.leng{
+    width: 35%;
+}

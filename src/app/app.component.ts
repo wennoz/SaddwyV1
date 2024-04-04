@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenRefreshService } from './Core/token-refresh.service';
+import { AuthService } from './Core/auth.service';
+import { LenguajesService } from './Core/lenguajes.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,11 @@ import { TokenRefreshService } from './Core/token-refresh.service';
 })
 export class AppComponent implements OnInit {
   title = 'SaddWy';
-  constructor(private refreshToken:TokenRefreshService){}
+  
+  constructor(private auth:AuthService){}
+
   ngOnInit(): void {
-    this.refreshToken.startTokenRefresh();
+    this.auth.iniciarIntervaloRefresco();
   }
+
 }

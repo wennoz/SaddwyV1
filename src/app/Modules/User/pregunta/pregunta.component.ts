@@ -22,6 +22,7 @@ export class PreguntaComponent implements OnInit {
   posentaje: number = 0 //la variable porsentaje esta guardando el resultado de 100 dividido cantidad, con el fin de saber cuanto tiene que aumentar la barra 
   respuestas:any=[]
   rCorrecta!:boolean
+  btnFinal=false  
 
   constructor(private toars: ToastrService,
               private elRef: ElementRef,
@@ -43,7 +44,6 @@ export class PreguntaComponent implements OnInit {
   }
 
   siguiente() {
-    if (true) {
       if (this.rCorrecta) {
         this.position++
         this.pregunta = this.listPreguntas[this.position]
@@ -52,11 +52,13 @@ export class PreguntaComponent implements OnInit {
         this.error2 = false
         this.getPregunta(this.id);
         this.respuestas.splice(0, this.respuestas.length);
+        if (this.cantidad==this.position+1) {
+          this.btnFinal=true;
+        }
       } else {
         this.error = false
         this.error2 = true
       }
-    }
   }
 
   llenar() {
@@ -81,15 +83,6 @@ export class PreguntaComponent implements OnInit {
     this.respuestas = listaRespuestas
   }
 
-  // validacion(): boolean {
-  //   let respuestas = this.respuestas
-  //   let seleccionada = this.respuestas.some(element => element.selecionada)
-  //   if (!seleccionada) {
-  //     this.error = true
-  //   }
-  //   return seleccionada;
-  // }
-
   seguirAprendiendo() {
     this.cerrar.nativeElement.click();
     this.router.navigate(['/dashboard'])
@@ -106,10 +99,6 @@ export class PreguntaComponent implements OnInit {
       let res=Object.values(this.pregunta.respuesta)
       this.ordenar(res)
       this.cantidad=this.listPreguntas.length
-      console.log(this.pregunta);
-      console.log(this.respuestas);
-      
-    
     },error=>{
       console.log(error);
       
@@ -129,5 +118,15 @@ export class PreguntaComponent implements OnInit {
    }
     
   }
-
+  agregarPuntos(){
+    let data={
+      "id":this.id,
+      "intentos":this.intentos
+    }
+    this.service.actualizar(this.id, data).subscribe(result=>{
+      console.log(result);
+    },error=>{
+      console.log(error);
+    });
+  }
 }

@@ -1,65 +1,70 @@
+<section class="section profile">
+  <div class="row">
+    <div class="col-xl-4">
+      <h5 class="text-center">Días de avancé</h5>
+      <div class="row col-10 col-sm-7 col-lg-6 col-xl-12 mx-auto border border-black rounded-5 p-2 px-3 mb-4">
+        <div class="col-1 m-2  p-1 rounded-circle d-flex justify-content-center align-items-center"
+          [ngClass]="{'racha': racha.Lunes, 'dia': !racha.Lunes}">L</div>
+        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+          [ngClass]="{'racha': racha.Martes, 'dia': !racha.Martes}">M</div>
+        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+          [ngClass]="{'racha': racha.Miercoles, 'dia': !racha.Miercoles}">M</div>
+        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+          [ngClass]="{'racha': racha.Jueves, 'dia': !racha.Jueves}">J</div>
+        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+          [ngClass]="{'racha': racha.Viernes, 'dia': !racha.Viernes}">V</div>
+        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+          [ngClass]="{'racha': racha.Sabado, 'dia': !racha.Sabado}">S</div>
+        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+          [ngClass]="{'racha': racha.Domingo, 'dia': !racha.Domingo}">D</div>
+      </div>
 
+      <div class="card">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-
-    <section class="section profile">
-      <div class="row">
-        <div class="col-xl-4">
-
-          <div class="card">
-            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-              <img src="{{user.foto}}" alt="Profile" class="rounded-circle"
-                style="border: 10px solid #4C428C;">
-              <h2>{{user.nombre}}</h2>
-              <b>hola</b>
-              <p class="my-3">
-                <img class="icono-menu" src="ilustrasiones/icono_reloj.svg" alt="">Se unió en enero de 2023
-              </p>
-              <p class="my-3">
-                <img class="icono-menu" src="ilustrasiones/icono_email_black.svg" alt="">
-                Correo electrónico
-              </p>
-              <a href="editarPerfil.html" class="btn my-3 p-3 text-white actualizar">Actualizar mi información</a>
-            </div>
+          <img src="{{user.foto}}" alt="Profile" class="rounded-circle perfil">
+          <h2>{{user.nombre}}</h2>
+          <div class="ps-5 ">
+            <p class="my-1 w-full ">
+              <img class="icono-menu" src="../../../../assets/icono_reloj.svg" alt="">
+              Se unió desde {{user.registro}}
+            </p>
+            <p class="my-1 w-full ">
+              <img class="icono-menu" src="../../../../assets/icono_email_black.svg" alt="">
+              {{user.correo}}
+            </p>
           </div>
-
-          <h5 class="text-center">Días de avancé</h5>
-          <div class="row col-10 col-sm-7 col-lg-6 col-xl-12 mx-auto border border-black rounded-5 p-2 mb-4">
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">L</div>
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">M</div>
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">M</div>
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">J</div>
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">V</div>
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">S</div>
-            <div class="col-1 mx-1 my-xl-1 p-0 rounded-circle d-flex justify-content-center align-items-center racha">D</div>
-          </div>
-
+          <a class="btn my-3 p-2 text-white actualizar">Actualizar mi información</a>
         </div>
+      </div>
 
-        <div class="col-xl-8">
+    </div>
 
-          <div class="card">
-            <div class="card-body pt-3">
-              <div class="row g-0">
-                <div class="col-md-4 d-flex justify-content-center align-items-center">
-                  <img src="ilustrasiones/python.svg" class="img-fluid rounded-start" alt="..." style="width: 40%;">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Python</h5>
-                    <div class="progress mt-3">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                        style="width: 50%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">50%</div>
-                    </div>
-                  </div>
+    <div class="col-xl-8">
+
+      <div class="card">
+        <div class="card-body pt-3">
+          <div class="row g-0" *ngFor="let lenguaje of progreso">
+            <div class="col-md-4 d-flex justify-content-center align-items-center">
+              <img src="{{lenguaje.lenguajeLogo}}" class="img-fluid rounded-start leng" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{lenguaje.lenguajeNombre}}</h5>
+                <div class="progress mt-3">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    [style.width.%]="lenguaje.progresoLenguaje" aria-valuenow="10" aria-valuemin="0"
+                    aria-valuemax="100">{{lenguaje.progresoLenguaje}}%</div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-    </section>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background-color: #4c428c;"><i
-      class="bi bi-arrow-up-short"></i></a>
+    </div>
+  </div>
+</section>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background-color: #4c428c;"><i
+    class="bi bi-arrow-up-short"></i></a>

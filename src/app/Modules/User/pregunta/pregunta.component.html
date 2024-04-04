@@ -40,13 +40,14 @@
 
   <div class="col-12 bg-dark mt-5 opacity-25 separador"></div>
   <div class="mt-2 pt-5 d-flex justify-content-center">
-    <button class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white" data-bs-toggle="modal"
-      data-bs-target="#exampleModal" (click)="siguiente()">Siguiente</button>
+    <button *ngIf="!btnFinal" class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white"  (click)="siguiente()">Siguiente</button>
+    <button *ngIf="btnFinal" class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white" data-bs-toggle="modal"
+      data-bs-target="#exampleModal" (click)="agregarPuntos()">Terminar</button>
   </div>
 
 </div>
 <!-- modal  -->
-<div *ngIf="cantidad==position+1" class="modal modal-xl " id="exampleModal" tabindex="-1"
+<div  class="modal modal-xl " id="exampleModal" tabindex="-1"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

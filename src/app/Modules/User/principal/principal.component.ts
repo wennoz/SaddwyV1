@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Core/auth.service';
 import { LenguajesService } from 'src/app/Core/lenguajes.service';
 
 @Component({
@@ -10,14 +11,13 @@ import { LenguajesService } from 'src/app/Core/lenguajes.service';
 export class PrincipalComponent implements OnInit{
   listLenguaje:any=[]
 
-  constructor(private service:LenguajesService, private router:Router){}
+  constructor(private service:LenguajesService, private router:Router, private auth:AuthService){}
   ngOnInit(): void {
     this.getAll();
   }
 
   getAll(){
     this.service.getAll().subscribe(result=>{
-      console.log(result.dato);
       this.listLenguaje=result.dato
     },
     error=>{
@@ -28,4 +28,5 @@ export class PrincipalComponent implements OnInit{
   verNivel(id:any){
     this.router.navigateByUrl('pregunta/' + id)
   }
+
 }
