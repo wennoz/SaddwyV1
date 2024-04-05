@@ -3,19 +3,19 @@
     <div class="col-xl-4">
       <h5 class="text-center">Días de avancé</h5>
       <div class="row col-10 col-sm-7 col-lg-6 col-xl-12 mx-auto border border-black rounded-5 p-2 px-3 mb-4">
-        <div class="col-1 m-2  p-1 rounded-circle d-flex justify-content-center align-items-center"
+        <div class="col-1 m-2 m-sm-1  p-1 rounded-circle d-flex justify-content-center align-items-center"
           [ngClass]="{'racha': racha.Lunes, 'dia': !racha.Lunes}">L</div>
-        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+        <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
           [ngClass]="{'racha': racha.Martes, 'dia': !racha.Martes}">M</div>
-        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+        <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
           [ngClass]="{'racha': racha.Miercoles, 'dia': !racha.Miercoles}">M</div>
-        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+        <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
           [ngClass]="{'racha': racha.Jueves, 'dia': !racha.Jueves}">J</div>
-        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+        <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
           [ngClass]="{'racha': racha.Viernes, 'dia': !racha.Viernes}">V</div>
-        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+        <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
           [ngClass]="{'racha': racha.Sabado, 'dia': !racha.Sabado}">S</div>
-        <div class="col-1 m-2 p-1 rounded-circle d-flex justify-content-center align-items-center "
+        <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
           [ngClass]="{'racha': racha.Domingo, 'dia': !racha.Domingo}">D</div>
       </div>
 
@@ -27,7 +27,7 @@
           <div class="ps-5 ">
             <p class="my-1 w-full ">
               <img class="icono-menu" src="../../../../assets/icono_reloj.svg" alt="">
-              Se unió desde {{user.registro}}
+              Se unió el {{user.registro}}
             </p>
             <p class="my-1 w-full ">
               <img class="icono-menu" src="../../../../assets/icono_email_black.svg" alt="">
