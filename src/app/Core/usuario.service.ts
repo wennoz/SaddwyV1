@@ -19,9 +19,13 @@ export class UsuarioService {
       return this.Http.post<any>(this.urlBase+"register/",data,{headers :this.httpHeader})
   }
 
+  edit(data:any){
+    return this.Http.put<any>(this.urlBase+"edit/",data,{headers :this.httpHeader})
+  }
   getProfile() {
     return this.Http.get<any>(this.urlBase+"profile/",{headers :this.httpHeader})
   }
+
 
   delete(id:number) {
     return this.Http.delete<any>(this.urlBase+id.toString(),{headers :this.httpHeader})

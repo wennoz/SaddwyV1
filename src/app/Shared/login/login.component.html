@@ -14,7 +14,7 @@
                                 <div class="card-body text-center">
 
                                     <img class="logo w-50 my-3" src="../../../assets/logo_SaddWy_black.svg" alt="">
-                                    <p *ngIf="error" class="error">Credenciales incorrectas</p>
+                                    <p *ngIf="error" class="error">{{mensaje}}.</p>
                                     <p *ngIf="incompletos" class="error">Completa los campos </p>
                                     <form [formGroup]="frmLogin" class="row g-3 needs-validation my-4 d-flex flex-column" novalidate>
 
@@ -48,7 +48,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 mb-0 text-center">
-                                            <a class="text-black" href="">¿Has olvidado tu contraseña?</a>
+                                            <a class="text-black" routerLink="/recoverPassword">¿Has olvidado tu contraseña?</a>
                                         </div>
                                     </form>
 

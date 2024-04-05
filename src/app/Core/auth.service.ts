@@ -6,7 +6,7 @@ import { Observable, interval, switchMap, tap } from 'rxjs';
 })
 export class AuthService {
   private apiUrl = 'http://127.0.0.1:8000/api/v01';
-  private urlBase = 'http://127.0.0.1:8000/api/v01/refresh/';
+  private urlBase = 'http://127.0.0.1:8000/api/v01/';
   private userData={}
   private httpHeader:HttpHeaders
 
@@ -24,6 +24,9 @@ export class AuthService {
       
   }
 
+  recuperar(data:any){
+    return this.http.post<any>(this.urlBase+'recovery/',data,{headers :this.httpHeader})
+  }
   private saveToken(token: string): void {
     localStorage.setItem('authToken', token); // Guardar el token en el almacenamiento local
   }
@@ -49,7 +52,7 @@ export class AuthService {
     let data={
       refresh:localStorage.getItem('refreshToken')
     }
-    return this.http.post<any>(this.urlBase,data,{headers :this.httpHeader})
+    return this.http.post<any>(this.urlBase+'refresh/',data,{headers :this.httpHeader})
   }
 
   iniciarIntervaloRefresco() {

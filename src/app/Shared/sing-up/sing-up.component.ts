@@ -17,9 +17,9 @@ export class SingUpComponent implements OnInit {
 
   constructor(private service: UsuarioService, private toastr: ToastrService) {
     this.frmSingUp = new FormGroup({
-      nombre: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(50), Validators.pattern('^[a-zA-Z ]*$')]),
+      nombre: new FormControl(null, [Validators.required, Validators.minLength(10), Validators.maxLength(30), Validators.pattern('^[a-zA-Z ]*$')]),
       correo: new FormControl(null, [Validators.required, Validators.maxLength(254), Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8), Validators.maxLength(12)]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       ConfirmarPassword: new FormControl(null, [Validators.required])
     })
   }

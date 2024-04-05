@@ -22,7 +22,7 @@
   <div *ngIf="voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color " id="card2" style="height: 350px;">
     <div class="d-flex justify-content-between">
       <h5>{{pregunta.pregunta}}</h5>
-      <button class="btn btn-primary p-2 h-50" (click)="girar()">Material de apollo</button>
+      <button class="btn btn-primary p-2 h-50" (click)="girar()">Material de apoyo</button>
     </div>
     <p>
       Según lo leído anteriormente: <br><br>
@@ -31,6 +31,7 @@
   </div>
   <p *ngIf="error" class="text-danger text-center">Debes seleccionar una respuesta</p>
   <p *ngIf="error2" class="text-danger text-center">Debes seleccionar la respuesta correcta</p>
+  <p  *ngIf="correcta" class="text-success text-center">Respuesta correcta,ya puedes responder la siguiente pregunta.</p>
   <div class=" mt-4 mx-5 my-5 d-flex flex-column align-items-center">
     <button *ngFor="let respuesta of respuestas; let i=index" (click)="selecionar(i)"
       ngClass="{{respuesta.clase}}" class="col-12 col-md-7 col-lg-8 me-3 mb-2">
@@ -59,8 +60,8 @@
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center position-absolute top-0 w-100 h-100 contenido">
           <img src="../../../../assets/trofeo3.svg" alt="trofeo">
-          <h1>Felicidades terminaste la prueba </h1>
-          <p>Tus puntos en esta prueba son {{intentos}}</p>
+          <h5 class="text-center">{{mensaje}} </h5>
+          <p>Tus puntos ahora son {{puntos}}</p>
           <div class="d-flex">
             <button (click)="seguirAprendiendo()" class="btn btn-primary mx-1">Seguir aprendiendo</button>
             <button (click)="irRanking()"class="btn btn-primary mx-1">Ver el ranking</button>

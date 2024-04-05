@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit{
   public frmLogin: FormGroup;
   public error=false;
   public incompletos=false;
+  public mensaje:any;
 
   constructor(private authService:AuthService, private router: Router,private toastr: ToastrService){
     this.frmLogin=new FormGroup({
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit{
       this.router.navigateByUrl('dashboard')
     },
       error => {
+        this.mensaje=error.error.mensaje
         this.error=true;
         console.log(error)
       });

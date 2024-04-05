@@ -1,40 +1,39 @@
-  
-    <section class="section">
-        <div class="row mb-5 px-5 ">
-          <div class="card-principal col-12 card mb-5 rounded-5 mt-5">
-            <div class="row g-0" style="position: relative;">
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">¡Programa tu futuro desde cero
-                    <br>
-                    con SaddWy
-                  </h5>
-                  <p class="card-text">¿Que quieres aprender hoy?</p>
-                </div>
-              </div>
-              <div class="col-md-4 contenedor-img-realidadVirtual">
-                <img src="../../../../assets/inicio.svg" class="img-realidadVirtual" alt="...">
-              </div>
-            </div>
+<section class="section">
+  <div class="row mb-5 px-5 ">
+    <div class="card-principal col-12 card mb-5 rounded-5 mt-5">
+      <div class="row g-0" style="position: relative;">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">¡Programa tu futuro desde cero
+              <br>
+              con SaddWy
+            </h5>
+            <p class="card-text">¿Que quieres aprender hoy?</p>
           </div>
         </div>
-        <div class="row d-flex justify-content-center">
-          <div *ngFor="let lenguaje of listLenguaje" class="col-7 col-md-4 col-lg-3 mx-3 mb-5 p-0">
-            <div class="card position-relative rounded-4" [style.backgroundColor]="lenguaje.colorHexadecimal">
-              <a class="bola position-absolute " href="">
-                <img src="{{lenguaje.logo}}" class="card-img-top rounded-circle iconos p-3"
-                [style.backgroundColor]="lenguaje.colorHexadecimal"alt="...">
-              </a>
-              <h5 class="card-title mt-4 pb-0 ms-3">{{lenguaje.nombre}}</h5>
-              <div class="card-body d-flex align-items-center flex-column">
-                <button *ngFor="let nivel of lenguaje.niveles" (click)="verNivel(nivel.id)" type="button" class="btn btn btn-java border-0 " [style.backgroundColor]="lenguaje.colorHexadecimal" style="opacity: 50;">
-                  <p class="textos-carta">{{nivel.nombre}}</p>
-                </button>
-                <a class="btn btn-primary" href="{{lenguaje.urlDocumentation}}">Documentacion</a>
-              </div>
-            </div><!-- End Card with an image on top -->
-          </div>
+        <div class="col-md-4 contenedor-img-realidadVirtual">
+          <img src="../../../../assets/inicio.svg" class="img-realidadVirtual" alt="...">
         </div>
-      </section>
-
-
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div *ngFor="let lenguaje of listLenguaje" class="col-7 col-md-4 col-lg-3 mx-3 mb-5 p-0">
+      <div class="card position-relative rounded-4" [style.backgroundColor]="lenguaje.color.fondo">
+        <a class="bola position-absolute " href="">
+          <img src="{{lenguaje.logo}}" class="card-img-top rounded-circle iconos p-3"
+            [style.backgroundColor]="lenguaje.color.componente" alt="...">
+        </a>
+        <h5 class="card-title mt-4 pb-0 ms-3">{{lenguaje.nombre}}</h5>
+        <div class="card-body d-flex align-items-center flex-column">
+          <button *ngFor="let nivel of lenguaje.niveles" (click)="verNivel(nivel.id)" type="button"
+            class="btn  btn-java border-0 " [style.backgroundColor]="lenguaje.color.componente" style="opacity: 50;">
+            {{nivel.nombre}}
+          </button>
+          <a class="btn btn-java d-flex align-items-center justify-content-center" style="text-decoration: none;" [style.backgroundColor]="lenguaje.color.componente" target="_blank"
+            href="{{lenguaje.urlDocumentation}}">Documentación</a>
+        </div>
+      </div><!-- End Card with an image on top -->
+    </div>
+  </div>
+</section>

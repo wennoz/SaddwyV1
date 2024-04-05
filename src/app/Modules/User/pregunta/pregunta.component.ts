@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PreguntasService } from 'src/app/Core/preguntas.service';
+import { RankingService } from 'src/app/Core/ranking.service';
 
 @Component({
   selector: 'app-pregunta',
@@ -23,12 +24,16 @@ export class PreguntaComponent implements OnInit {
   respuestas:any=[]
   rCorrecta!:boolean
   btnFinal=false  
+  correcta=false
+  mensaje=''
+  puntos=0
 
   constructor(private toars: ToastrService,
               private elRef: ElementRef,
               private router: Router,
               private service:PreguntasService,
-              private activeRouter: ActivatedRoute) {
+              private activeRouter: ActivatedRoute,
+              private serviceRanking:RankingService) {
 
   }
 
@@ -51,6 +56,7 @@ export class PreguntaComponent implements OnInit {
         this.error = false
         this.error2 = false
         this.getPregunta(this.id);
+        this.correcta=false
         this.respuestas.splice(0, this.respuestas.length);
         if (this.cantidad==this.position+1) {
           this.btnFinal=true;
@@ -73,10 +79,12 @@ export class PreguntaComponent implements OnInit {
     if (respuesta.correcta) {
       respuesta.clase = 'correcto'
       this.rCorrecta = true
+      this.correcta=true
     } else {
       respuesta.clase = 'error'
       this.intentos++
       this.toars.warning('Vuelve a intentarlo', 'SaddWy')
+      
       this.rCorrecta=false
     }
     listaRespuestas[i] = respuesta
@@ -119,14 +127,27 @@ export class PreguntaComponent implements OnInit {
     
   }
   agregarPuntos(){
+   
     let data={
       "id":this.id,
       "intentos":this.intentos
     }
+    alert(data)
     this.service.actualizar(this.id, data).subscribe(result=>{
       console.log(result);
+      this.mensaje=result.mensaje
+      this.traerPuntos();
     },error=>{
       console.log(error);
+    });
+  }
+  traerPuntos(){
+    this.serviceRanking.getAll().subscribe(result=>{
+      this.puntos=result.dato.usuario.puntos
+    },
+    error=>{
+      console.log(error);
+      
     });
   }
 }
