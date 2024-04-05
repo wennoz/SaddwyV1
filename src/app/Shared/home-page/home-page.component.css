@@ -10,6 +10,10 @@
     display: flex;
 }
 
+.fondo{
+    background: radial-gradient(249.51% 131.7% at 100% 90.72%, #602160 0%, #280652 76.04%);
+}
+
 .contenedor-delantero {
     background: linear-gradient(113deg, rgba(91, 29, 151, 0.90) -0.15%, #9A3A99 88.91%);
     width: 100%;
@@ -43,7 +47,7 @@
 }
 
 .bienvenido {
-    padding: 10%;
+    padding: 5%;
 }
 
 .letra-titulo {
@@ -72,9 +76,9 @@ hr {
     display: flex;
 }
 
-.contenedor-foto {
+/* .contenedor-foto {
     padding-top: 95px;
-}
+} */
 
 .img-muñeca {
     height: 400px;

@@ -19,7 +19,7 @@ export class PreguntasService {
       return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
   }
   actualizar(id:any,data:any){
-    return this.Http.post<any>(this.urlBase+'/'+id,data,{headers :this.httpHeader})
+    return this.Http.post<any>(this.urlBase+'/'+id+'/',data,{headers :this.httpHeader})
   }
 
   getById(id:number) {

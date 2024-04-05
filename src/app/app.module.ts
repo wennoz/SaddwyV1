@@ -25,6 +25,7 @@ import { LenguajesComponent } from './Modules/Admin/lenguajes/lenguajes.componen
 import { ManualComponent } from './Modules/User/manual/manual.component';
 import { TokenInterceptor } from './Core/token.interceptor';
 import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
+import { ErrorComponent } from './Shared/error/error.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { UserBaseComponent } from './Modules/User/user-base/user-base.component'
     LenguajesComponent,
     ManualComponent,
     UserBaseComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
