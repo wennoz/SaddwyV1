@@ -19,7 +19,7 @@ export class FotosService {
       return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
   }
   editar(data:any,id:any){
-    return this.Http.put<any>(this.urlBase+"/"+id,data,{headers :this.httpHeader})
+    return this.Http.put<any>(this.urlBase+id+"/",data,{headers :this.httpHeader})
   }
 
   getById(id:number) {

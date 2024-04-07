@@ -26,6 +26,7 @@ import { ManualComponent } from './Modules/User/manual/manual.component';
 import { TokenInterceptor } from './Core/token.interceptor';
 import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
 import { ErrorComponent } from './Shared/error/error.component';
+import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ErrorComponent } from './Shared/error/error.component';
     ManualComponent,
     UserBaseComponent,
     ErrorComponent,
+    FotosComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsuariosAdminService {
-  private urlBase = 'http://127.0.0.1:8000/api/v01/admin/users/';
+  private urlBase = 'http://127.0.0.1:8000/api/v01/admin/users';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {
@@ -19,7 +19,7 @@ export class UsuariosAdminService {
       return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
   }
   editar(data:any,id:any){
-    return this.Http.put<any>(this.urlBase+"/"+id,data,{headers :this.httpHeader})
+    return this.Http.put<any>(this.urlBase+"/"+id+'/',data,{headers :this.httpHeader})
   }
 
   getById(id:number) {

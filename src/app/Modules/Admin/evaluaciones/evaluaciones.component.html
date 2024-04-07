@@ -1,28 +1,35 @@
 <div class="container">
+    <h1>Niveles</h1>
     <div class="d-flex justify-content-end">
-        <button routerLink="/admin/agregar" class="btn btn-primary my-2">Agregar evalución</button>
+        <button routerLink="/admin/agregar" class="btn btn-primary my-2">Agregar nivel</button>
     </div>
     <table class="table">
         <thead class="table-light">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Cantidad preguntas</th>
+                <th scope="col">Explicación</th>
+                <th scope="col">Total preguntas</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Registro</th>
                 <th scope="col">Lenguaje</th>
                 <th scope="col">Acciones</th>
-              </tr>
+            </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Prueba nivel 1</td>
-                <td>10</td>
-                <td>Java</td>
+            <tr *ngFor="let nivel of listNiveles">
+                <th scope="row">{{nivel.id}}</th>
+                <td>{{nivel.nombre}}</td>
+                <td>{{nivel.explanation}}</td>
+                <td>{{nivel.totalPreguntas}}</td>
+                <td>{{nivel.estado}}</td>
+                <td>{{nivel.registro}}</td>
+                <td>{{nivel.lenguaje}}</td>
                 <td>
                     <button class="btn btn-danger mx-1">eliminar</button>
                     <button class="btn btn-warning mx-1">editar</button>
                 </td>
-              </tr>
+            </tr>
         </tbody>
-      </table>
+    </table>
 </div>

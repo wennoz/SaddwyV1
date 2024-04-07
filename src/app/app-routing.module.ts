@@ -17,6 +17,7 @@ import { PreguntaComponent } from './Modules/User/pregunta/pregunta.component';
 import { ManualComponent } from './Modules/User/manual/manual.component';
 import { AuthGuard } from './Core/auth.guard';
 import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
+import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
 
 
 
@@ -74,6 +75,8 @@ const routes: Routes = [
       }
     ]
   },
+
+  // INICIO ADMIN
   {
     path: 'admin',
     component: IndexAdminComponent,
@@ -81,11 +84,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'evaluaciones', // Redireccionar a evaluaciones por defecto
+        redirectTo: 'niveles', // Redireccionar a evaluaciones por defecto
         pathMatch: 'full'
       },
       {
-        path: 'evaluaciones',
+        path: 'niveles',
         component: EvaluacionesComponent
       },
       {
@@ -99,6 +102,10 @@ const routes: Routes = [
       {
         path: 'lenguajes',
         component: LenguajesComponent
+      },
+      {
+        path: 'fotos',
+        component: FotosComponent
       }
     ]
   }

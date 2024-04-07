@@ -1,7 +1,8 @@
 <div class="container">
     <h2>Lenguajes</h2>
     <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button #modalButton type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
             Agregar lenguaje
         </button>
     </div>
@@ -12,22 +13,31 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Logo</th>
                 <th scope="col">Url documentación</th>
-                <th scope="col">Color</th>
+                <th scope="col">Color lenguaje</th>
+                <th scope="col">Color componetes</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Registro</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Java</td>
+            <tr *ngFor="let len of listLenguajes">
+                <th scope="row">{{len.id}}</th>
+                <td>{{len.nombre}}</td>
+                <th scope="row">
+                    <img class="w-25 h-25 rounded-5" src="{{len.logo}}" alt="User">
+                </th>
                 <td>
-                    <img src="" alt="logo">
+                    <a class="icon-link" href="{{len.urlDocumentation}}">{{len.nombre}}</a>
                 </td>
-                <td>www.java.com</td>
-                <td>#ffff98</td>
-                <td>
-                    <button class="btn btn-danger mx-1">eliminar</button>
-                    <button class="btn btn-warning mx-1">editar</button>
+                <td>{{len.color.fondo}}</td>
+                <td>{{len.color.componente}}</td>
+                <td>{{len.estado ? 'Activo':'Inactivo'}}</td>
+                <td>{{len.registro}}</td>
+                <td class=" d-flex">
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+                        class="btn btn-danger mx-1" (click)="tomarId(len.id)">eliminar</button>
+                    <button class="btn btn-warning mx-1" (click)="verLenguajes(len.id)">editar</button>
                 </td>
             </tr>
         </tbody>
@@ -41,27 +51,51 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Agrega el nuevo lenguaje</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <form [formGroup]="frmLenguaje" class="modal-body">
                     <div>
                         <label class="form-label">Nombre</label>
-                        <input class="form-control" type="text">
+                        <input formControlName="nombre" class="form-control" type="text">
                     </div>
                     <div>
                         <label class="form-label">Logo</label>
-                        <input class="form-control" type="file">
+                        <input id="logoInput" class="form-control" type="file">
                     </div>
                     <div>
                         <Label class="form-label">URL documentación</Label>
-                        <input class="form-control" type="text">
+                        <input formControlName="urlDocumentation" class="form-control" type="text">
                     </div>
-                    <div>
-                        <label class="form-label">Color</label>
-                        <input class="form-control" type="color">
+                    <h5>Seleciona los colores</h5>
+                    <div class="d-flex ">
+                        <input formControlName="fondo" type="color">
+                        <label class="form-label mx-1">Color del lenguaje</label>
+                        <input formControlName="componente" type="color">
+                        <label class="form-label mx-1">Color de de los componentes</label>
                     </div>
-                </div>
+                </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        (click)="agregarLenguaje()" *ngIf="!editar">Agregar</button>
+                    <button type="button" class="btn btn-primary" *ngIf="editar" data-bs-dismiss="modal"
+                        (click)="editarLenguaje()">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal confirmacion -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">¿Estas seguro de eliminar este lenguaje?</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="eliminar()">Eliminar</button>
                 </div>
             </div>
         </div>

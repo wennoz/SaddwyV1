@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/Core/usuario.service';
 
 @Component({
   selector: 'app-user-base',
@@ -10,12 +11,9 @@ export class UserBaseComponent implements OnInit{
   barra=false;
   user:any
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private serviseUser:UsuarioService) {}
   ngOnInit(): void {
-    let usuario=localStorage.getItem('user')
-    if (usuario) {
-        this.user=JSON.parse(usuario)
-    }
+    this.getProfile();
   }
   onActivate(event:any) {
     if (event.constructor.name === 'PrincipalComponent') {
@@ -28,5 +26,15 @@ export class UserBaseComponent implements OnInit{
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     localStorage.removeItem('refreshToken')
+  }
+
+  getProfile(){
+    this.serviseUser.getProfile().subscribe(result=>{
+      console.log(result.dato.usuario);
+      this.user=result.dato.usuario
+    },error=> {
+      console.log(error);
+      
+    })
   }
 }
