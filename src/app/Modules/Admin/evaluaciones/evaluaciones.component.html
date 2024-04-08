@@ -3,6 +3,15 @@
     <div class="d-flex justify-content-end">
         <button routerLink="/admin/agregar" class="btn btn-primary my-2">Agregar nivel</button>
     </div>
+    <div class="row">
+        <form class="d-flex my-1 aling-items-center" (ngSubmit)="buscar()" #formBuscar="ngForm">
+            <button (click)="getAll()" class="btn btn-outline-secondary  mx-1">
+                Cancelar
+            </button>
+            <input class="form-control me-2" type="search" placeholder="Filtrar por nombre o Explicación" name="terminoBusqueda" [(ngModel)]="terminoBusqueda">
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+          </form>
+    </div>
     <table class="table">
         <thead class="table-light">
             <tr>
@@ -25,11 +34,28 @@
                 <td>{{nivel.estado}}</td>
                 <td>{{nivel.registro}}</td>
                 <td>{{nivel.lenguaje}}</td>
-                <td>
-                    <button class="btn btn-danger mx-1">eliminar</button>
-                    <button class="btn btn-warning mx-1">editar</button>
+                <td class="d-flex">
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-danger mx-1" (click)="tomarId(nivel.id)">eliminar</button>
+                    <button class="btn btn-warning mx-1" (click)="editar(nivel.id)">editar</button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">¿Estas seguro de eliminar este lenguaje?</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="eliminar()">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

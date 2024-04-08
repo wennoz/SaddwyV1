@@ -41,26 +41,6 @@ export class PerfilComponent implements OnInit {
       
     });
   }
-  editar(){
-    let data={
-      foto:'',
-      nombre:this.nombre,
-      password:''
-    }
-    if (this.nombre=='') {
-      this.toars.error('Tiene que haber al menos un campo', 'SaddWy')
-      return
-    }else{
-      this.service.edit(data).subscribe(result=>{
-        this.toars.success('Información actualizada', 'SaddWy')
-        this.getProfile()
-      },
-      error=>{
-        console.log(error);
-        
-      })
-    }
-  }
 
   cambiar(){
     if (this.frmPass.invalid) {
@@ -85,8 +65,24 @@ export class PerfilComponent implements OnInit {
     });
     
   }
-  onFileSelected(event: any) {
-    this.foto = event.target.files[0];  
+  cambiarFoto(){
+    let fotoInput = document.getElementById('fotoInput') as HTMLInputElement;
+    let foto: File | null = null;
+    if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
+      foto = fotoInput.files[0];
+    }
+    let formData = new FormData();
+    if (foto) {
+      formData.append('foto', foto);
+      formData.append('nombre', this.nombre);
+      this.service.edit(formData).subscribe(result=>{
+        this.toars.success('Foto agregada', 'SaddWy')
+      }, error=>{
+        console.log(error);
+        
+      });
+    }
   }
+  
 
 }

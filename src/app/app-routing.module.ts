@@ -18,12 +18,18 @@ import { ManualComponent } from './Modules/User/manual/manual.component';
 import { AuthGuard } from './Core/auth.guard';
 import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
 import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
+import { ContactoComponent } from './Modules/User/contacto/contacto.component';
+import { NivelesComponent } from './Modules/User/niveles/niveles.component';
 
 
 
 const routes: Routes = [
   {
     path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'login/:token',
     component: LoginComponent
   },
   {
@@ -39,7 +45,7 @@ const routes: Routes = [
     component: RecuperarPasswordComponent
   },
   {
-    path: 'confirmPassword',
+    path: 'confirmarPassword/:token',
     component: ConfirmarPasswordComponent
   },
   {
@@ -72,6 +78,14 @@ const routes: Routes = [
       {
         path: 'manual',
         component: ManualComponent
+      },
+      {
+        path: 'contacto',
+        component: ContactoComponent
+      },
+      {
+        path: 'niveles',
+        component: NivelesComponent
       }
     ]
   },
@@ -90,6 +104,10 @@ const routes: Routes = [
       {
         path: 'niveles',
         component: EvaluacionesComponent
+      },
+      {
+        path: 'editar/niveles/:id',
+        component: AgregarEvaluacionesComponent
       },
       {
         path: 'agregar',

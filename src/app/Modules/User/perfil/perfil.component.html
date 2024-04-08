@@ -34,8 +34,8 @@
               {{user.correo}}
             </p>
           </div>
-          <a class="btn my-3 p-2 text-white actualizar" data-bs-toggle="modal"
-          data-bs-target="#exampleModal">Actualizar mi información</a>
+          <a class="btn my-3 p-2 text-white actualizar" data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar
+            mi información</a>
 
         </div>
       </div>
@@ -88,29 +88,30 @@
                     <div class="pt-1 pb-2">
                       <h5 class="card-title text-center py-0 fs-4">Actualizar mis datos</h5>
                     </div>
-                    <form class="row g-1 needs-validation" >
+                    <form class="row g-1 needs-validation">
                       <div class="col-12 card p-3">
-                        <label for="yourName"  class="form-label">Nombre:</label>
-                        <input type="text" name="name" class="form-control" [(ngModel)]="nombre" id="yourName" 
+                        <label for="yourName" class="form-label">Nombre:</label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="nombre"
                           style="background-color: #ECDEF2;">
                         <label for="yourName" class="form-label">Foto:</label>
-                        <input type="file" name="name" class="form-control" id="yourName" 
+                        <input type="file" name="name" class="form-control" id="fotoInput"
                           style="background-color: #ECDEF2;">
-                          <div class="d-flex justify-content-end my-1">
-                            <button type="button" class="btn btn-primary w-full" (click)="editar()">Actualizar información</button>
-                          </div>
+                        <div class="d-flex justify-content-end my-1">
+                          <button type="button" class="btn btn-primary w-full" (click)="cambiarFoto()">Actualizar información</button>
+                        </div>
                       </div>
 
                       <form [formGroup]="frmPass" class="col-12 card p-3">
                         <label for="yourPassword" class="form-label">Contraseña:</label>
-                        <input formControlName="password" type="password" name="password" class="form-control" id="yourPassword" required
-                          style="background-color: #ECDEF2;">
-                          <label for="yourPassword" class="form-label">Confirmar contraseña:</label>
-                          <input type="password" formControlName="ConfiPassword" class="form-control" id="yourPassword" required
-                            style="background-color: #ECDEF2;">
-                            <div class="d-flex justify-content-end my-1">
-                              <button type="button" class="btn btn-primary w-full" (click)="cambiar()">Actualizar contraseña</button>
-                            </div>
+                        <input formControlName="password" type="password" name="password" class="form-control"
+                          id="yourPassword" required style="background-color: #ECDEF2;">
+                        <label for="yourPassword" class="form-label">Confirmar contraseña:</label>
+                        <input type="password" formControlName="ConfiPassword" class="form-control" id="yourPassword"
+                          required style="background-color: #ECDEF2;">
+                        <div class="d-flex justify-content-end my-1">
+                          <button type="button" class="btn btn-primary w-full" (click)="cambiar()">Actualizar
+                            contraseña</button>
+                        </div>
                       </form>
 
                     </form>

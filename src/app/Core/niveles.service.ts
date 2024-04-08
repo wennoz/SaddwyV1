@@ -19,11 +19,11 @@ export class NivelesService {
       return this.Http.post<any>(this.urlBase,data,{headers :this.httpHeader})
   }
   editar(data:any,id:any){
-    return this.Http.put<any>(this.urlBase+"/"+id,data,{headers :this.httpHeader})
+    return this.Http.put<any>(this.urlBase+id+"/",data,{headers :this.httpHeader})
   }
 
   getById(id:number) {
-    return this.Http.get<any>(this.urlBase+"/"+id,{headers :this.httpHeader})
+    return this.Http.get<any>(this.urlBase+id,{headers :this.httpHeader})
   }
 
   delete(id:number) {

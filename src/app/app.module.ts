@@ -27,6 +27,8 @@ import { TokenInterceptor } from './Core/token.interceptor';
 import { UserBaseComponent } from './Modules/User/user-base/user-base.component';
 import { ErrorComponent } from './Shared/error/error.component';
 import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
+import { NivelesComponent } from './Modules/User/niveles/niveles.component';
+import { ContactoComponent } from './Modules/User/contacto/contacto.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
     UserBaseComponent,
     ErrorComponent,
     FotosComponent,
+    NivelesComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,

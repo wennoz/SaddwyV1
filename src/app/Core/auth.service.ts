@@ -23,9 +23,15 @@ export class AuthService {
       );
       
   }
+  validarCuenta(token:any){
+    return this.http.get<any>(this.urlBase+'validate/'+token,{headers :this.httpHeader})  
+  }
 
   recuperar(data:any){
     return this.http.post<any>(this.urlBase+'recovery/',data,{headers :this.httpHeader})
+  }
+  restablecer(data:any,token:any){
+    return this.http.post<any>(this.urlBase+'recover/'+token+'/',data,{headers :this.httpHeader})
   }
   private saveToken(token: string): void {
     localStorage.setItem('authToken', token); // Guardar el token en el almacenamiento local

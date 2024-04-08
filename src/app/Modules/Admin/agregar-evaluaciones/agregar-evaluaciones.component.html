@@ -49,16 +49,17 @@
         <div class="preguntas" >
                 <h4>Todas las preguntas que creaste</h4>
                 <div class=" item px-1" *ngFor="let pregunta of listPreguntas; let i =index">
-                    <button (click)="eliminarPregunta(i)" class="btn-eliminar mx-1 ">x</button>
+                    <button (click)="eliminarPregunta(i,pregunta.id)" class="btn-eliminar mx-1 ">x</button>
                     <div class="item-titulo p-0 m-0">
                         <p class="p-0 m-0">{{pregunta.nombre}}</p>
-                        <p class="text-secondary m-0 p-o">Cantidad de preguntas {{pregunta.respuestas.length}}</p>
+                        <p class="text-secondary m-0 p-o">Cantidad de resouestas {{pregunta.respuestas.length}}</p>
                     </div>
                     <button class="btn btn-primary" (click)="ver(i)">Ver</button>
                 </div>
         </div>
     </div>
     <div class="d-flex justify-content-end">
-        <button class="btn btn-primary" (click)="AgregarNivel()">Agregar evalucion</button>
+        <button *ngIf="id!=undefined" class="btn btn-primary" (click)="editarNivel()">Editar nivel</button>
+        <button *ngIf="id==undefined" class="btn btn-primary" (click)="AgregarNivel()">Agregar nivel</button>
     </div>
 </div>

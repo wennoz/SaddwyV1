@@ -69,7 +69,6 @@ export class SingUpComponent implements OnInit {
     }    
 
     if (passConfi == pass) {
-      alert('correcto')
       let data = {
         "nombre": this.frmSingUp.controls['nombre'].value,
         "correo": this.frmSingUp.controls['correo'].value,
@@ -77,7 +76,7 @@ export class SingUpComponent implements OnInit {
       }
       this.service.save(data).subscribe(result => {
         console.log(result);
-
+          this.toastr.success('Bienvenid@, revisa tu correo, hemos enviado un enlace para que inicies sesión. ','SaddWy')
       }, error => {
         console.log(error);
 
