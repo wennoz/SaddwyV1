@@ -20,20 +20,27 @@ import { UserBaseComponent } from './Modules/User/user-base/user-base.component'
 import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
 import { ContactoComponent } from './Modules/User/contacto/contacto.component';
 import { NivelesComponent } from './Modules/User/niveles/niveles.component';
+import { rolGuard } from './Core/auth/rol.guard';
+import { ErrorComponent } from './Shared/error/error.component';
+import { isAuthGuard } from './Core/is-auth.guard';
+import { MensajesContactoComponent } from './Modules/Admin/mensajes-contacto/mensajes-contacto.component';
 
 
 
 const routes: Routes = [
   {
     path: 'login',
+    canActivate:[isAuthGuard],
     component: LoginComponent
   },
   {
     path: 'login/:token',
+    canActivate:[isAuthGuard],
     component: LoginComponent
   },
   {
     path: 'sing-up',
+    canActivate:[isAuthGuard],
     component: SingUpComponent
   },
   {
@@ -51,12 +58,12 @@ const routes: Routes = [
   {
     path: 'pregunta/:id',
     component: PreguntaComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',
-    component:UserBaseComponent,
-    canActivate:[AuthGuard],
+    component: UserBaseComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -84,7 +91,7 @@ const routes: Routes = [
         component: ContactoComponent
       },
       {
-        path: 'niveles',
+        path: 'nivel/:nivel',
         component: NivelesComponent
       }
     ]
@@ -94,7 +101,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: IndexAdminComponent,
-    canActivate:[AuthGuard],
+    canActivate: [AuthGuard, rolGuard],
     children: [
       {
         path: '',
@@ -124,8 +131,16 @@ const routes: Routes = [
       {
         path: 'fotos',
         component: FotosComponent
+      },
+      {
+        path: 'mensajes',
+        component: MensajesContactoComponent
       }
     ]
+  },
+  {
+    path: '**',
+    component: ErrorComponent
   }
 ];
 

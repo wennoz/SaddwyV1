@@ -16,39 +16,51 @@
                                     <img class="logo w-50 my-3" src="../../../assets/logo_SaddWy_black.svg" alt="">
                                     <p *ngIf="error" class="error">{{mensaje}}.</p>
                                     <p *ngIf="incompletos" class="error">Completa los campos </p>
-                                    <form [formGroup]="frmLogin" class="row g-3 needs-validation my-4 d-flex flex-column" novalidate>
+                                    <form [formGroup]="frmLogin"
+                                        class="row g-3 needs-validation my-4 d-flex flex-column" novalidate>
 
-                                        <div class="col-12 col-lg-8 text-start mx-auto">
-                                            <img class="img-fluid icono-iniciar-sesion mx-1"
-                                                src="../../../assets/icono_email_iniciar.svg" >
+                                        <div class="col-12 col-lg-8 text-start mx-auto ">
+                                            <img class="img-fluid icono-iniciar-sesion  mx-1"
+                                                src="../../../assets/icono_email_iniciar.svg">
                                             <label for="yourUsername" class="form-label">Correo:</label>
                                             <div class="input-group has-validation">
-                                                <input [ngClass]="{'inputError':incompletos}" type="text" formControlName="email" name="username" class="form-control"
+                                                <input [ngClass]="{'inputError':incompletos}" type="text"
+                                                    formControlName="email" name="username" class="form-control"
                                                     id="yourUsername" required style="background-color: #ECDEF2;">
                                             </div>
                                         </div>
 
-                                        <div class="col-12 col-lg-8 text-start mx-auto">
+                                        <div class="col-12 col-lg-8 text-start mx-auto position-relative" >
                                             <img class="img-fluid icono-iniciar-sesion mx-1"
                                                 src="../../../assets/icono_password.svg" alt="">
                                             <label for="yourPassword" class="form-label">Contraseña:</label>
-                                            <input [ngClass]="{'inputError':incompletos}"  type="password" formControlName="password" name="password" class="form-control"
-                                                id="yourPassword" required style="background-color: #ECDEF2;">
+                                            <input [ngClass]="{'inputError':incompletos}"
+                                                [type]="changetype?'password':'text'" formControlName="password"
+                                                name="password" class="form-control" id="yourPassword" required
+                                                style="background-color: #ECDEF2;">
+
+                                            <img class="eyeicon" (click)="viewpass()"
+                                                [src]="visible? '../../../assets/eye.svg' : '../../../assets/eye-off.svg'"
+                                                alt="">
                                         </div>
                                         <div class="col-12 col-lg-8 my-4 mx-auto">
-                                            <button (click)="login()" class="btn w-100 rounded-5 text-white iniciar-sesion"
+                                            <button (click)="login()"
+                                                class="btn w-100 rounded-5 text-white iniciar-sesion"
                                                 type="submit">Iniciar
                                                 sesión</button>
                                         </div>
                                         <div class="row mx-auto py-0 ps-2 col-8 d-flex align-items-center">
-                                            <div class="col col-lg-5 mx-2" style="height: 2px; background-color: #000000;">
+                                            <div class="col col-lg-5 mx-2"
+                                                style="height: 2px; background-color: #000000;">
                                             </div>
                                             O
-                                            <div class="col col-lg-5 mx-2" style="height: 2px; background-color: #000000;">
+                                            <div class="col col-lg-5 mx-2"
+                                                style="height: 2px; background-color: #000000;">
                                             </div>
                                         </div>
                                         <div class="col-12 mb-0 text-center">
-                                            <a class="text-black" routerLink="/recoverPassword">¿Has olvidado tu contraseña?</a>
+                                            <a class="text-black" routerLink="/recoverPassword">¿Has olvidado tu
+                                                contraseña?</a>
                                         </div>
                                     </form>
 

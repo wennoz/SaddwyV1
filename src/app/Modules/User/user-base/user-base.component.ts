@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LenguajesService } from 'src/app/Core/lenguajes.service';
 import { UsuarioService } from 'src/app/Core/usuario.service';
 
 @Component({
@@ -10,10 +11,13 @@ import { UsuarioService } from 'src/app/Core/usuario.service';
 export class UserBaseComponent implements OnInit{
   barra=false;
   user:any
-
-  constructor(private router: Router, private serviseUser:UsuarioService) {}
+  listLenguajes:any=[]
+  filtro:any=[]
+  buscador=''
+  constructor( private serviseUser:UsuarioService, private service:LenguajesService,private router: Router) {}
   ngOnInit(): void {
     this.getProfile();
+    this.getLenguajes();
   }
   onActivate(event:any) {
     if (event.constructor.name === 'PrincipalComponent') {
@@ -30,11 +34,37 @@ export class UserBaseComponent implements OnInit{
 
   getProfile(){
     this.serviseUser.getProfile().subscribe(result=>{
-      console.log(result.dato.usuario);
       this.user=result.dato.usuario
     },error=> {
       console.log(error);
       
     })
+  }
+  getLenguajes(){
+    this.service.getAll().subscribe(result=>{
+      console.log(result);
+      this.listLenguajes=result.dato
+    },error=>{
+      console.log(error);
+    })
+  }
+  buscar(event: Event) {
+    const letras = (event.target as HTMLInputElement).value; // Verificación de nulidad
+    if (letras) {
+      this.filtro = this.listLenguajes.filter((objeto:any) =>
+        objeto.nombre.toLowerCase().includes(letras.toLowerCase())
+      );
+    } else {
+      this.filtro = []; // Si el campo de búsqueda está vacío, reinicia los resultados
+    }
+  }
+  verNiveles(nombre: any) {
+    this.router.navigateByUrl('/dashboard/nivel/'+nombre)
+  }
+  ocultarResultados(){
+    setTimeout(()=>{
+      this.filtro=[]
+      this.buscador=''
+    },200);
   }
 }

@@ -18,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (token) {
       request = request.clone({
         setHeaders: {
-          'Authorization':`Token ${token}`// Aquí establece el nombre del encabezado según lo especificado por tu API
+          'Authorization':`Token ${token}`
         }
       });
     }

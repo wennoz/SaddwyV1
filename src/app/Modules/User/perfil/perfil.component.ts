@@ -71,11 +71,14 @@ export class PerfilComponent implements OnInit {
     if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
       foto = fotoInput.files[0];
     }
+    alert('hola')
     let formData = new FormData();
     if (foto) {
       formData.append('foto', foto);
       formData.append('nombre', this.nombre);
       this.service.edit(formData).subscribe(result=>{
+        console.log(result);
+        
         this.toars.success('Foto agregada', 'SaddWy')
       }, error=>{
         console.log(error);

@@ -19,3 +19,12 @@
 .inputError{
     border:1px solid red;
 }
+
+.eyeicon{
+    height: auto;
+    width: 20px;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    top: 40px;
+}

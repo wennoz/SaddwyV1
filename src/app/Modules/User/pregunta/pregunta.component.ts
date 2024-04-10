@@ -58,6 +58,7 @@ export class PreguntaComponent implements OnInit {
         this.getPregunta(this.id);
         this.correcta=false
         this.respuestas.splice(0, this.respuestas.length);
+        this.rCorrecta=false
         if (this.cantidad==this.position+1) {
           this.btnFinal=true;
         }
@@ -68,9 +69,18 @@ export class PreguntaComponent implements OnInit {
   }
 
   llenar() {
-    let lleno = 100 / this.cantidad
-    this.posentaje = lleno * this.position
+    let lleno = 100 / this.cantidad;
+    
+    if (this.position === 0) {
+      this.posentaje = lleno * (this.position + 1);
+    } else if (this.position === this.cantidad - 1) {
+      this.posentaje = 100;
+    } else { 
+      this.posentaje = lleno * (this.position + 1);
+    }
+    
   }
+  
 
   selecionar(i: any) {
     let listaRespuestas = this.respuestas
@@ -127,12 +137,11 @@ export class PreguntaComponent implements OnInit {
     
   }
   agregarPuntos(){
-   
+    this.llenar();
     let data={
       "id":this.id,
       "intentos":this.intentos
     }
-    alert(data)
     this.service.actualizar(this.id, data).subscribe(result=>{
       console.log(result);
       this.mensaje=result.mensaje

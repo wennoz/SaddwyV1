@@ -253,7 +253,7 @@ export class AgregarEvaluacionesComponent implements OnInit {
     setTimeout(() => {
       // Aquí puedes especificar la ruta a la que deseas navegar
       this.router.navigate(['/admin/niveles']);
-    }, 2000);
+    }, 5000);
   }
   
   mostrarAlertaEdicionExitosa() {

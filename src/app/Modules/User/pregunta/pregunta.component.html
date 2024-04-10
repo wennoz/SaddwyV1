@@ -1,7 +1,7 @@
 <div class="container-fluid justify-content-center">
   <div class="d-flex justify-content-center">
-    <a class="volver " href="principal.html">
-      <img src="ilustrasiones/icono_volver.svg" alt="">
+    <a class="volver " routerLink="/dashboard">
+      <img src="../../../../assets/icono_volver.svg" alt="">
     </a>
     <h2 class="mx-3 mt-1">{{pregunta.nivel.nombre}} </h2>
   </div>
@@ -13,7 +13,7 @@
   <div *ngIf="!voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color" id="card" style="height: 350px;">
     <div class="d-flex justify-content-between my-2">
       <h3>{{pregunta.nivel.detalle}}</h3>
-      <button class="btn btn-primary p-2" (click)="girar()"> Ver </button>
+      <button class="btnVer p-2 h-50" (click)="girar()"> Ver pregunta </button>
     </div>
     <p>
       {{pregunta.explanation}}
@@ -22,7 +22,7 @@
   <div *ngIf="voltear" class="col-12 col-md-10 col-lg-8 mx-auto m-2 p-2 color " id="card2" style="height: 350px;">
     <div class="d-flex justify-content-between">
       <h5>{{pregunta.pregunta}}</h5>
-      <button class="btn btn-primary p-2 h-50" (click)="girar()">Material de apoyo</button>
+      <button class="btnVer p-2 h-50" (click)="girar()">Material de apoyo</button>
     </div>
     <p>
       Según lo leído anteriormente: <br><br>

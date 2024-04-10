@@ -1,63 +1,67 @@
 <div class="fondo_atras">
 
-    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10 col-md-12 d-flex flex-column align-items-center justify-content-center">
+  <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-md-12 d-flex flex-column align-items-center justify-content-center">
 
-            <div class="card mb-3 p-5 rounded-5">
-              <div class="row">
-                <div class="col-md-6 pb-4 d-flex justify-content-center align-items-center flex-column">
-                  <img class="logo" src="../../../assets/logo_SaddWy_black.svg" alt="">
-                  <h5 class="card-title text-black fs-4">
-                    ¿Estas listo para iniciar en el mundo de la porgramación?
-                  </h5>
-                  <h5 class="card-title text-black fw-bold py-0 fs-4">¡Bienvenido a SaddWy!</h5>
-                </div>
-                <div class="col-md-6">
-                  <div class="card-body">
-                    
-                    <form [formGroup]="frmSingUp" class="row g-3 needs-validation" novalidate>
-                      <div class="col-12">
-                        <label for="yourName" class="form-label">Nombre completo:</label>
-                        <input type="text" name="name" class="form-control" id="yourName" required
-                          style="background-color: #ECDEF2;" formControlName="nombre">
-                      </div>
+          <div class="card mb-3 p-5 rounded-5">
+            <div class="row">
+              <div class="col-md-6 pb-4 d-flex justify-content-center align-items-center flex-column">
+                <img class="logo" src="../../../assets/logo_SaddWy_black.svg" alt="">
+                <h5 class="card-title text-black fs-4">
+                  ¿Estas listo para iniciar en el mundo de la porgramación?
+                </h5>
+                <h5 class="card-title text-black fw-bold py-0 fs-4">¡Bienvenido a SaddWy!</h5>
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
 
-                      <div class="col-12">
-                        <label for="yourEmail" class="form-label">Correo:</label>
-                        <input type="email" name="email" class="form-control" id="yourEmail" required
-                          style="background-color: #ECDEF2;" formControlName="correo">
-                      </div>
+                  <form [formGroup]="frmSingUp" class="row g-3 needs-validation" novalidate>
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Nombre completo:</label>
+                      <input type="text" name="name" class="form-control" id="yourName" required
+                        style="background-color: #ECDEF2;" formControlName="nombre">
+                    </div>
 
-                      <div class="col-12">
-                        <label for="yourPassword" class="form-label">Contraseña:</label>
-                        <input type="password" name="password" class="form-control" id="yourPassword" required
-                          style="background-color: #ECDEF2;" formControlName="password">
-                      </div>
+                    <div class="col-12">
+                      <label for="yourEmail" class="form-label">Correo:</label>
+                      <input type="email" name="email" class="form-control" id="yourEmail" required
+                        style="background-color: #ECDEF2;" formControlName="correo">
+                    </div>
 
-                      <div class="col-12">
-                        <label for="yourConfPassword" class="form-label">Confirmar contraseña:</label>
-                        <input type="password" name="confPassword" class="form-control" id="yourConfPassword" required
-                          style="background-color: #ECDEF2;" formControlName="ConfirmarPassword">
-                      </div>
+                    <div class="col-12 position-relative">
+                      <label for="yourPassword" class="form-label">Contraseña:</label>
+                      <input [type]="changetype?'password':'text'" name="password" class="form-control" id="yourPassword" required
+                        style="background-color: #ECDEF2;" formControlName="password">
+                        <img class="eyeicon" (click)="viewpass()"
+                        [src]="visible? '../../../assets/eye.svg' : '../../../assets/eye-off.svg'" alt="">
+                    </div>
 
-                      <div class="col-8 col-sm-7 col-md-7 mx-auto">
-                        <button class="btn w-100 text-white iniciar-sesion rounded-5" (click)="singUp()">
-                          Registrarse
-                        </button>
-                      </div>
-                    </form>
+                    <div class="col-12 position-relative">
+                      <label for="yourConfPassword" class="form-label">Confirmar contraseña:</label>
+                      <input [type]="changetype2?'password':'text'" name="confPassword" class="form-control" id="yourConfPassword" required
+                        style="background-color: #ECDEF2;" formControlName="ConfirmarPassword">
+                        <img class="eyeicon" (click)="viewpass2()"
+                        [src]="visible2? '../../../assets/eye.svg' : '../../../assets/eye-off.svg'" alt="">
+                    </div>
 
-                  </div>
+                    <div class="col-8 col-sm-7 col-md-7 mx-auto">
+                      <button class="btn w-100 text-white iniciar-sesion rounded-5" (click)="singUp()">
+                        Registrarse
+                      </button>
+                    </div>
+                  </form>
+
                 </div>
               </div>
             </div>
-
           </div>
+
         </div>
       </div>
+    </div>
 
-    </section>
+  </section>
 
-  </div>
+</div>

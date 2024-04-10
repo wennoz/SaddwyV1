@@ -29,6 +29,8 @@ import { ErrorComponent } from './Shared/error/error.component';
 import { FotosComponent } from './Modules/Admin/fotos/fotos.component';
 import { NivelesComponent } from './Modules/User/niveles/niveles.component';
 import { ContactoComponent } from './Modules/User/contacto/contacto.component';
+import { MensajesContactoComponent } from './Modules/Admin/mensajes-contacto/mensajes-contacto.component';
+
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import { ContactoComponent } from './Modules/User/contacto/contacto.component';
     FotosComponent,
     NivelesComponent,
     ContactoComponent,
+    MensajesContactoComponent,
+
   ],
   imports: [
     BrowserModule,

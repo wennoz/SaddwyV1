@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PreguntasAdminService {
-  private urlBase = 'http://127.0.0.1:8000/api/v01/admin/Questions/';
+  private urlBase = 'http://127.0.0.1:8000/api/v01/admin/questions/';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {

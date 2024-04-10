@@ -27,6 +27,8 @@ export class EvaluacionesComponent implements OnInit{
           this.terminoBusqueda=''
           this.service.getAll().subscribe(response=>{
             this.listNiveles=response
+            console.log(this.listNiveles);
+            
           },
           error=>{
             console.log(error);

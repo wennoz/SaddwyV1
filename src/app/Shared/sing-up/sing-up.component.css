@@ -30,9 +30,13 @@
 }
 
 
-.google_png {
-    max-width: 8%;
-    margin-right: 4%;
+.eyeicon{
+    height: auto;
+    width: 20px;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    top: 40px;
 }
 
 @media screen and (min-width: 992px) {

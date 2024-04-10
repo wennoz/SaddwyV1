@@ -10,6 +10,21 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SingUpComponent implements OnInit {
   public frmSingUp: FormGroup;
+  visible: boolean = true;
+  visible2: boolean = true;
+  changetype: boolean = true;
+  changetype2: boolean = true;
+
+  viewpass() {
+    this.visible = !this.visible;
+   this.changetype = !this. changetype;
+  }
+
+  viewpass2(){
+    this.visible2 = !this.visible2;
+    this.changetype2 = !this. changetype2;
+  }
+
 
   ngOnInit(): void {
 
@@ -79,7 +94,7 @@ export class SingUpComponent implements OnInit {
           this.toastr.success('Bienvenid@, revisa tu correo, hemos enviado un enlace para que inicies sesión. ','SaddWy')
       }, error => {
         console.log(error);
-
+        this.toastr.error(error.error.mensaje, 'Contraseña');
       });
     } else {
       this.toastr.error('Las contraseñas no coinciden', 'Contraseña');

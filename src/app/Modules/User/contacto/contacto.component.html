@@ -4,7 +4,6 @@
         <div class="container ">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12 d-flex flex-column align-items-center justify-content-center">
-
                     <div class="shadow card mb-3 p-5 rounded-5">
                         <div class="row">
                             <div class="col-md-6  d-flex align-items-center flex-column">
@@ -37,42 +36,41 @@
                             <div class="col-md-6">
                                 <div class="card-body">
 
-                                    <form  class="row g-3 needs-validation" novalidate>
+                                    <form [formGroup]="frmMensaje" class="row g-3 needs-validation" novalidate>
                                         <div class="col-12">
                                             <label for="yourName" class="form-label">Tu nombre:</label>
-                                            <input type="text" name="name" class="form-control" id="yourName"
+                                            <input formControlName="nombre" type="text" name="name" class="form-control" id="yourName"
                                                 required style="background-color: #ECDEF2;"
                                                 >
                                         </div>
                                         <div class="col-12">
-                                            <label for="yourName" class="form-label">Tu numero telefónico:</label>
-                                            <input type="number" name="name" class="form-control" id="yourName"
+                                            <label  for="yourName" class="form-label">Tu numero telefónico:</label>
+                                            <input formControlName="telefono" type="number" name="name" class="form-control" id="yourName"
                                                 required style="background-color: #ECDEF2;"
                                                 >
                                         </div>
 
                                         <div class="col-12">
                                             <label for="yourEmail" class="form-label">Tu correo electrónico:</label>
-                                            <input type="email" name="email" class="form-control" id="yourEmail"
+                                            <input formControlName="correo" type="email" name="email" class="form-control" id="yourEmail"
                                                 required style="background-color: #ECDEF2;"
                                                 >
                                         </div>
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Tu mensaje:</label>
-                                            <textarea class="form-control" style="background-color: #ECDEF2;"
+                                            <textarea formControlName="mensaje" class="form-control" style="background-color: #ECDEF2;"
                                                 name="" id="" cols="30" rows="8">
                                             </textarea>
 
                                         </div>
                                         <div class="col-8 col-sm-7 col-md-7 mx-auto">
-                                            <button class="btn2  w-100 text-white iniciar-sesion rounded-5"
+                                            <button (click)="enviar()" class="btn2  w-100 text-white iniciar-sesion rounded-5"
                                                 >
                                                 Enviar mensaje
                                             </button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>

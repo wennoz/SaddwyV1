@@ -4,11 +4,14 @@
 
         <button id="botonCerrar"  class="lg-d-none btn-close toggle-sidebar-btn"></button>
 
-        <div class="search-bar" *ngIf="barra">
+        <div class="search-bar position-relative" *ngIf="barra">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
-                <input type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
+                <input (input)="buscar($event)" [(ngModel)]="buscador" (blur)="ocultarResultados()" class="w-100" type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
+            <ul  class="list-group position-absolute b-0 w-100">
+                    <li (click)="verNiveles(len.nombre)" *ngFor="let len of filtro"  class="list-group-item">{{len.nombre}}</li>
+              </ul>
         </div><!-- End Search Bar -->
 
         <nav class="header-nav">
@@ -79,7 +82,7 @@
             </li>
         </ul>
     </aside>
-    <main id="main" class="main">
+    <main id="main" class="main bg-light">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
 </div>
