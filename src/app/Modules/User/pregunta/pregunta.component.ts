@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PreguntasService } from 'src/app/Core/preguntas.service';
@@ -22,7 +22,7 @@ export class PreguntaComponent implements OnInit {
   cantidad: number = 0 //es la cantidad de preguntas
   posentaje: number = 0 //la variable porsentaje esta guardando el resultado de 100 dividido cantidad, con el fin de saber cuanto tiene que aumentar la barra 
   respuestas:any=[]
-  rCorrecta!:boolean
+  rCorrecta:boolean=false
   btnFinal=false  
   correcta=false
   mensaje=''
@@ -33,7 +33,8 @@ export class PreguntaComponent implements OnInit {
               private router: Router,
               private service:PreguntasService,
               private activeRouter: ActivatedRoute,
-              private serviceRanking:RankingService) {
+              private serviceRanking:RankingService,
+              private renderer: Renderer2) {
 
   }
 
@@ -102,11 +103,11 @@ export class PreguntaComponent implements OnInit {
   }
 
   seguirAprendiendo() {
-    this.cerrar.nativeElement.click();
+    this.cerrarModal()
     this.router.navigate(['/dashboard'])
   }
   irRanking() {
-    this.cerrar.nativeElement.click();
+    this.cerrarModal()
     this.router.navigate(['/dashboard/ranking'])
   }
 
@@ -137,19 +138,24 @@ export class PreguntaComponent implements OnInit {
     
   }
   agregarPuntos(){
-    this.llenar();
-    let data={
-      "id":this.id,
-      "intentos":this.intentos
+    if(this.rCorrecta){
+      this.abrirModal()
+      this.llenar();
+      let data={
+        "id":this.id,
+        "intentos":this.intentos
+      }
+      this.service.actualizar(this.id, data).subscribe(result=>{
+        this.mensaje=result.mensaje
+        this.traerPuntos();
+      },error=>{
+        console.log(error);
+      });
+    }else{
+      this.error2 = true
     }
-    this.service.actualizar(this.id, data).subscribe(result=>{
-      console.log(result);
-      this.mensaje=result.mensaje
-      this.traerPuntos();
-    },error=>{
-      console.log(error);
-    });
   }
+  
   traerPuntos(){
     this.serviceRanking.getAll().subscribe(result=>{
       this.puntos=result.dato.usuario.puntos
@@ -158,5 +164,22 @@ export class PreguntaComponent implements OnInit {
       console.log(error);
       
     });
+  }
+  abrirModal() {
+    const modal = document.getElementById('exampleModal');
+    this.renderer.addClass(modal, 'show');
+    this.renderer.setStyle(modal, 'display', 'block');
+    const backdrop = document.createElement('div');
+    backdrop.classList.add('modal-backdrop', 'fade', 'show');
+    this.renderer.appendChild(document.body, backdrop);
+  }
+  cerrarModal() {
+    const modal = document.getElementById('exampleModal');
+    this.renderer.removeClass(modal, 'show');
+    this.renderer.removeStyle(modal, 'display');
+    const backdrop = document.querySelector('.modal-backdrop');
+    if (backdrop) {
+      backdrop.remove();
+    }
   }
 }

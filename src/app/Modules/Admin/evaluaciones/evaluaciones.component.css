@@ -1,0 +1,13 @@
+.btnSiguiente{
+    border: none;
+    height: 40px;
+    width: 200px;
+    border-radius: 30px;
+    background-color: #3D9DF2;
+    color: white;
+    font: bold;
+    transition: 200ms;
+}
+.btnSiguiente:hover{
+    background-color: #4696db;
+}

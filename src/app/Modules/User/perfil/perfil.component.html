@@ -91,11 +91,11 @@
                     <form class="row g-1 needs-validation">
                       <div class="col-12 card p-3">
                         <label for="yourName" class="form-label">Nombre:</label>
-                        <input type="text" name="name" class="form-control" [(ngModel)]="nombre"
+                        <input type="text" name="name" value="{{user.nombre}}" class="form-control" [(ngModel)]="nombre"
                           style="background-color: #ECDEF2;">
                         <label for="yourName" class="form-label">Foto:</label>
                         <input type="file" name="name" class="form-control" id="fotoInput"
-                          style="background-color: #ECDEF2;" accept="image/png">
+                          style="background-color: #ECDEF2;" accept="image/png/svg">
                         <div class="d-flex justify-content-end my-1">
                           <button type="button" class="btn btn-primary w-full" (click)="cambiarFoto()">Actualizar información</button>
                         </div>

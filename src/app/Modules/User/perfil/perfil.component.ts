@@ -21,19 +21,13 @@ export class PerfilComponent implements OnInit {
       ConfiPassword:new FormControl(null,[Validators.required])
     })
   }
-  ngOnInit(): void {
-    let usu=localStorage.getItem('user')
-    if (usu) {
-      let userLocal=JSON.parse(usu);
-      this.nombre=userLocal.nombre 
-    } 
+  ngOnInit(): void { 
     this.getProfile();
-    
-    
   }
   getProfile(){
     this.service.getProfile().subscribe(result=>{
       this.user=result.dato.usuario
+      this.nombre=this.user.nombre
       this.progreso=result.dato.progreso
       this.racha=this.user.racha
     },error=>{
@@ -71,14 +65,13 @@ export class PerfilComponent implements OnInit {
     if (fotoInput && fotoInput.files && fotoInput.files.length > 0) {
       foto = fotoInput.files[0];
     }
-    alert('hola')
     let formData = new FormData();
     if (foto) {
       formData.append('foto', foto);
       formData.append('nombre', this.nombre);
       this.service.edit(formData).subscribe(result=>{
         console.log(result);
-        
+        this.getProfile();
         this.toars.success('Foto agregada', 'SaddWy')
       }, error=>{
         console.log(error);

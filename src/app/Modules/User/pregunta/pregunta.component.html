@@ -42,8 +42,7 @@
   <div class="col-12 bg-dark mt-5 opacity-25 separador"></div>
   <div class="mt-2 pt-5 d-flex justify-content-center">
     <button *ngIf="!btnFinal" class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white"  (click)="siguiente()">Siguiente</button>
-    <button *ngIf="btnFinal" class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white" data-bs-toggle="modal"
-      data-bs-target="#exampleModal" (click)="agregarPuntos()">Terminar</button>
+    <button *ngIf="btnFinal"  class="btnSiguiente col-12 col-md-5 col-lg-2 p-3 mb-3 Conti text-white" (click)="agregarPuntos()">Terminar</button>
   </div>
 
 </div>

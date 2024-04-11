@@ -12,13 +12,11 @@ export class RankingComponent implements OnInit{
   puntos:any
   ranking:any=[]
   ngOnInit(): void {
-    let usu=localStorage.getItem('user')
-    if (usu) {
-      this.user=JSON.parse(usu)
-    }
+    
     this.getAll()
+    this.getProfile()
   }
-  constructor(private service:RankingService){}
+  constructor(private service:RankingService, private seriveUser:UsuarioService){}
 
   getAll(){
     this.service.getAll().subscribe(result=>{
@@ -28,4 +26,11 @@ export class RankingComponent implements OnInit{
       console.log(error);
     });
   }
+  getProfile(){
+    this.seriveUser.getProfile().subscribe(result=>{
+      console.log(result.dato.usuario);
+      this.user=result.dato.usuario
+    })
+  }
+  
 }

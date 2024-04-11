@@ -24,9 +24,9 @@
                 <td>{{ user.estado ? 'Activo' : 'Inactivo' }}</td>
                 <td>{{ user.administrador ? 'Administrador' : 'Usuario' }}</td>
                 <td>{{ user.registro }}</td>
-                <td>
-                    <button  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-danger mx-1" (click)="tomarId(user.id)">eliminar</button>
-                    <button  data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="btn btn-warning mx-1" (click)="getUser(user.id)">Editar</button>
+                <td class="d-flex">
+                    <button  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(user.id)">eliminar</button>
+                    <button style="background-color: #4C428C;" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="btn text-white mx-1" (click)="getUser(user.id)">Editar</button>
 
                 </td>
               </tr>

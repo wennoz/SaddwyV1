@@ -2,26 +2,30 @@
 
     <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-1">
 
-        <i onclick="cerrar()" id="botonCerrar2" class="bi bi-x-lg toggle-sidebar-btn" style="color: white;"></i>
-
+        <img (click)="mostrar()" src="../../../../assets/icono_hamburguesa.svg" class="icono-menu" alt="">
+        <!-- <div class="d-flex ps-4">
+            <input (input)="buscar($event)" [(ngModel)]="buscador" (blur)="ocultarResultados()" class="w-100 form-control" type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
+        </div> -->
         <div class="search-bar position-relative" *ngIf="barra">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input (input)="buscar($event)" [(ngModel)]="buscador" (blur)="ocultarResultados()" class="w-100" type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                <button type="submit" title="Search">
+                    <img class="icono-men" src="../../../../assets/icono_buscar.svg" alt="">
+                </button>
             </form>
             <ul  class="list-group position-absolute b-0 w-100">
                     <li (click)="verNiveles(len.nombre)" *ngFor="let len of filtro"  class="list-group-item">{{len.nombre}}</li>
               </ul>
         </div><!-- End Search Bar -->
-
+       
         <nav class="header-nav">
             <ul class="d-flex align-items-center">
 
-                <li class="nav-item d-block d-lg-none">
+                <li class="nav-item d-block ">
                     <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="bi bi-search"></i>
+                        <img class="icono-men" src="../../../../assets/icono_buscar.svg" alt="">
                     </a>
-                </li><!-- End Search Icon-->
+                </li>
 
                 <li class="nav-item dropdown pe-3">
 
@@ -29,7 +33,7 @@
                         <img src="{{user.foto}}" alt="Profile" class="rounded-circle"
                             style="width: 36px;">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{user.nombre}}</span>
-                    </a><!-- End Profile Iamge Icon -->
+                    </a>
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li>
@@ -39,42 +43,42 @@
                             </a>
                         </li>
 
-                    </ul><!-- End Profile Dropdown Items -->
-                </li><!-- End Profile Nav -->
+                    </ul>
+                </li>
 
             </ul>
-        </nav><!-- End Icons Navigation -->
+        </nav>
 
-    </header><!-- End Header -->
-    <aside id="sidebar"  class="sid navegation z-3">
+    </header>
+    <aside id="sidebar" [ngClass]="saibar ? 'd-none':''" class="sid navegation z-3  d-lg-block">
         <ul class="sidebar-nav" id="sidebar-nav">
-            <button  id="botonCerrar2" class="d-block d-lg-none" style="color: white;">x</button>
+            <img src="../../../../assets/icono_cerrar.svg" (click)="mostrar()"   class="d-block d-lg-none icono-menu" >
             <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
-            <li class="nav-item mb-5">
+            <li class="nav-item mb-5" (click)="mostrar()">
                 <a class="nav-link collapsed" routerLink="principal" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_inicio_white.svg" alt="">
                     <span class="text-white">Inicio</span>
                 </a>
             </li>
-            <li class="nav-item my-5">
+            <li class="nav-item my-5" (click)="mostrar()">
                 <a class="nav-link collapsed" routerLink="perfil" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_perfil_white.svg" alt="">
                     <span class="text-white">Perfil</span>
                 </a>
             </li>
-            <li class="nav-item my-5">
+            <li class="nav-item my-5" (click)="mostrar()">
                 <a class="nav-link collapsed" routerLink="contacto" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_email_white.svg" alt="">
                     <span class="text-white">Contáctenos</span>
                 </a>
             </li>
-            <li class="nav-item my-5">
+            <li class="nav-item my-5" (click)="mostrar()">
                 <a class="nav-link collapsed" routerLink="ranking" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_ranking_white.svg" alt="">
                     <span class="text-white">Ranking</span>
                 </a>
             </li>
-            <li class="nav-item my-5">
+            <li class="nav-item my-5" (click)="mostrar()">
                 <a class="nav-link collapsed" routerLink="manual" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_manual_white.svg" alt="">
                     <span class="text-white">Manual</span>
@@ -85,4 +89,5 @@
     <main id="main" class="main bg-light">
         <router-outlet (activate)="onActivate($event)"></router-outlet>
     </main>
+    <app-footer></app-footer>
 </div>

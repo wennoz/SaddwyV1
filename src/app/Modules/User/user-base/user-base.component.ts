@@ -15,6 +15,7 @@ export class UserBaseComponent implements OnInit{
   filtro:any=[]
   buscador=''
   constructor( private serviseUser:UsuarioService, private service:LenguajesService,private router: Router) {}
+  saibar=true
   ngOnInit(): void {
     this.getProfile();
     this.getLenguajes();
@@ -42,7 +43,6 @@ export class UserBaseComponent implements OnInit{
   }
   getLenguajes(){
     this.service.getAll().subscribe(result=>{
-      console.log(result);
       this.listLenguajes=result.dato
     },error=>{
       console.log(error);
@@ -66,5 +66,8 @@ export class UserBaseComponent implements OnInit{
       this.filtro=[]
       this.buscador=''
     },200);
+  }
+  mostrar(){
+    this.saibar=!this.saibar
   }
 }
