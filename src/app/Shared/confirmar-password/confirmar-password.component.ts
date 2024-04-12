@@ -36,7 +36,7 @@ export class ConfirmarPasswordComponent implements OnInit{
 
   restablecer(){
       if (this.password==''||this.confiPassword=='') {
-        this.toastr.error('Los campos no pueden estar vacios','SaddWy');
+        this.toastr.error('Los campos no pueden estar vacíos','SaddWy');
         return
       }
       if (this.password!=this.confiPassword) {
@@ -46,7 +46,7 @@ export class ConfirmarPasswordComponent implements OnInit{
           password:this.password
         }
         this.authService.restablecer(data,this.token).subscribe(result=>{
-          this.toastr.success('La contraseña fue restablacida, ya puedes volver a ingresar y seguir aprendiendo','SaddWy')
+          this.toastr.success('La contraseña fue restablecida, ya puedes volver a ingresar y seguir aprendiendo','SaddWy')
           setTimeout(() => {
             // Aquí puedes especificar la ruta a la que deseas navegar
             this.router.navigate(['/login']);

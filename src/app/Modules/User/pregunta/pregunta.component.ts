@@ -13,14 +13,14 @@ export class PreguntaComponent implements OnInit {
   id = 0
   @ViewChild('cerrar') cerrar!: ElementRef;
   voltear = false; //esta variable la usamos para ocultar y mostrar los div
-  position = 0 //la posicion de la pregunta en el array de preguntas 
+  position = 0 //la posición de la pregunta en el array de preguntas 
   intentos = 0
   error = false
   error2 = false
   listPreguntas: any = []
   pregunta :any //se guarda una sola pregunta en este objecto
   cantidad: number = 0 //es la cantidad de preguntas
-  posentaje: number = 0 //la variable porsentaje esta guardando el resultado de 100 dividido cantidad, con el fin de saber cuanto tiene que aumentar la barra 
+  posentaje: number = 0 //la variable porcentaje esta guardando el resultado de 100 dividido cantidad, con el fin de saber cuanto tiene que aumentar la barra 
   respuestas:any=[]
   rCorrecta:boolean=false
   btnFinal=false  

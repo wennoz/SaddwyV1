@@ -44,7 +44,7 @@ export class FotosComponent implements OnInit{
         
       });
     }else{
-      this.toars.error('El campo no debe estar vacio', 'SaddWy')
+      this.toars.error('El campo no debe estar vacío', 'SaddWy')
     }
   }
   tomarId(id:any){
@@ -74,7 +74,7 @@ export class FotosComponent implements OnInit{
         
       });
     }else{
-      this.toars.error('El campo no debe estar vacio', 'SaddWy')
+      this.toars.error('El campo no debe estar vacío', 'SaddWy')
     }
   }
   eliminar() {
