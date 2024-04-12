@@ -41,8 +41,13 @@
 .perfil{
     border: 10px solid #4C428C; 
     height: 200px; 
-    width: 350px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
+
 .leng{
     width: 35%;
 }

@@ -1,37 +1,39 @@
 <div class="container">
    <h2>Usuarios</h2>
-    <table class="table">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Rol</th>
-                <th scope="col">Registro</th>
-                <th scope="col">Acciones</th>
-              </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of listUser">
-                <th scope="row">{{user.id}}</th>
-                <th scope="row">
-                  <img class="w-25 rounded-5" src="{{user.foto}}" alt="User">
-                </th>
-                <td>{{user.nombre}}</td>
-                <td>{{user.correo}}</td>
-                <td>{{ user.estado ? 'Activo' : 'Inactivo' }}</td>
-                <td>{{ user.administrador ? 'Administrador' : 'Usuario' }}</td>
-                <td>{{ user.registro }}</td>
-                <td class="d-flex">
-                    <button  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(user.id)">eliminar</button>
-                    <button style="background-color: #4C428C;" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="btn text-white mx-1" (click)="getUser(user.id)">Editar</button>
-
-                </td>
-              </tr>
-        </tbody>
-      </table>
+   <div class="row">
+     <table class="col-6 table overflow-x-auto ">
+         <thead class="table-light">
+             <tr>
+                 <th scope="col">Id</th>
+                 <th scope="col">Foto</th>
+                 <th scope="col">Nombre</th>
+                 <th scope="col">Correo</th>
+                 <th scope="col">Estado</th>
+                 <th scope="col">Rol</th>
+                 <th scope="col">Registro</th>
+                 <th scope="col">Acciones</th>
+               </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let user of listUser">
+                 <th scope="row">{{user.id}}</th>
+                 <th scope="row">
+                   <img class="w-25 rounded-5" src="{{user.foto}}" alt="User">
+                 </th>
+                 <td>{{user.nombre}}</td>
+                 <td>{{user.correo}}</td>
+                 <td>{{ user.estado ? 'Activo' : 'Inactivo' }}</td>
+                 <td>{{ user.administrador ? 'Administrador' : 'Usuario' }}</td>
+                 <td>{{ user.registro }}</td>
+                 <td class="d-flex">
+                     <button  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(user.id)">eliminar</button>
+                     <button style="background-color: #4C428C;" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="btn text-white mx-1" (click)="getUser(user.id)">Editar</button>
+ 
+                 </td>
+               </tr>
+         </tbody>
+       </table>
+   </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -54,13 +56,13 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar usuario</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div>
-            <label class="form-label">Nombre</label>
-            <input [(ngModel)]="nombre" [value]="usuario.nombre" class="form-control" type="text">
+            <label class="form-label">{{nombre}}</label>
+            <input [(ngModel)]="nombre" [value]="usuario.nombre" class="form-control" type="text" disabled>
         </div>
         <div>
             <label class="form-label">Correo</label>
@@ -80,7 +82,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-warning" (click)="editar()">Editar usuario</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="editar()">Editar usuario</button>
         </div>
       </div>
     </div>

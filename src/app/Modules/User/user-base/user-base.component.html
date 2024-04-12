@@ -3,10 +3,13 @@
     <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-1">
 
         <img (click)="mostrar()" src="../../../../assets/icono_hamburguesa.svg" class="icono-menu" alt="">
-        <!-- <div class="d-flex ps-4">
-            <input (input)="buscar($event)" [(ngModel)]="buscador" (blur)="ocultarResultados()" class="w-100 form-control" type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
-        </div> -->
-        <div class="search-bar position-relative" *ngIf="barra">
+        <div class="d-flex search-form w-75 position-relative d-md-none" *ngIf="barra">
+            <input (input)="buscar($event)" [(ngModel)]="buscador" (blur)="ocultarResultados()" class="buscador" type="sheard" name="query" placeholder="Buscar" >
+            <ul  class="list-group position-absolute b-0 mt-5 w-100">
+                <li (click)="verNiveles(len.nombre)" *ngFor="let len of filtro"  class="list-group-item">{{len.nombre}}</li>
+          </ul>
+        </div>
+        <div class="search-bar position-relative d-none d-md-block" *ngIf="barra">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input (input)="buscar($event)" [(ngModel)]="buscador" (blur)="ocultarResultados()" class="w-100" type="text" name="query" placeholder="Buscar" title="Enter search keyword" class="rounded-5">
                 <button type="submit" title="Search">
@@ -30,12 +33,18 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="{{user.foto}}" alt="Profile" class="rounded-circle"
-                            style="width: 36px;">
+                        <img src="{{user.foto}}" alt="Profile" class="rounded-circle img-fluid"
+                            style="width: 36px; height: 36px;">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{user.nombre}}</span>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li *ngIf="admin">
+                            <a routerLink="/admin" class="dropdown-item d-flex align-items-center" href="#">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span >Administrador</span>
+                            </a>
+                        </li>
                         <li>
                             <a (click)="loyaut()" class="dropdown-item d-flex align-items-center" href="#">
                                 <i class="bi bi-box-arrow-right"></i>
@@ -53,32 +62,32 @@
     <aside id="sidebar" [ngClass]="saibar ? 'd-none':''" class="sid navegation z-3  d-lg-block">
         <ul class="sidebar-nav" id="sidebar-nav">
             <img src="../../../../assets/icono_cerrar.svg" (click)="mostrar()"   class="d-block d-lg-none icono-menu" >
-            <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
-            <li class="nav-item mb-5" (click)="mostrar()">
-                <a class="nav-link collapsed" routerLink="principal" style="background-color: transparent">
+            <img class="logo img-fluid mb-2" src="../../../../assets/logo_SaddWy_white.svg" alt="">
+            <li class="nav-item py-2 my-4 navItem" [class.activo]="elementoActivo === 'inicio'" (click)="marcarActivo('inicio')" (click)="mostrar()">
+                <a class="nav-link collapsed " routerLink="principal" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_inicio_white.svg" alt="">
                     <span class="text-white">Inicio</span>
                 </a>
             </li>
-            <li class="nav-item my-5" (click)="mostrar()">
+            <li class="nav-item py-2 my-4 navItem" [class.activo]="elementoActivo === 'perfil'" (click)="marcarActivo('perfil')" (click)="mostrar()">
                 <a class="nav-link collapsed" routerLink="perfil" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_perfil_white.svg" alt="">
                     <span class="text-white">Perfil</span>
                 </a>
             </li>
-            <li class="nav-item my-5" (click)="mostrar()">
+            <li class="nav-item py-2 my-4 navItem" (click)="mostrar()" [class.activo]="elementoActivo === 'contacto'" (click)="marcarActivo('contacto')">
                 <a class="nav-link collapsed" routerLink="contacto" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_email_white.svg" alt="">
                     <span class="text-white">Contáctenos</span>
                 </a>
             </li>
-            <li class="nav-item my-5" (click)="mostrar()">
+            <li class="nav-item py-2 my-4 navItem" (click)="mostrar()" [class.activo]="elementoActivo === 'ranking'" (click)="marcarActivo('ranking')">
                 <a class="nav-link collapsed" routerLink="ranking" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_ranking_white.svg" alt="">
                     <span class="text-white">Ranking</span>
                 </a>
             </li>
-            <li class="nav-item my-5" (click)="mostrar()">
+            <li class="nav-item py-2 my-4 navItem " (click)="mostrar()" [class.activo]="elementoActivo === 'manual'" (click)="marcarActivo('manual')">
                 <a class="nav-link collapsed" routerLink="manual" style="background-color: transparent">
                     <img class="icono-menu" src="../../../../assets/icono_manual_white.svg" alt="">
                     <span class="text-white">Manual</span>
@@ -87,7 +96,7 @@
         </ul>
     </aside>
     <main id="main" class="main bg-light">
-        <router-outlet (activate)="onActivate($event)"></router-outlet>
+        <router-outlet  (activate)="onActivate($event)"></router-outlet>
     </main>
     <app-footer></app-footer>
 </div>

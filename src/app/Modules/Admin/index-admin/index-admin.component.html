@@ -1,19 +1,15 @@
 <div>
 
     <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-2">
-
-        <i id="botonCerrar" class="bi bi-list toggle-sidebar-btn"></i>
-
+        <div class="d-flex justify-content-start">
+           
+                <img class="icono-menu" src="../../../../assets/icono_hamburguesa.svg" alt="">
        
+        </div>
 
         <nav class="header-nav">
             <ul class="d-flex align-items-center">
 
-                <li class="nav-item d-block d-lg-none">
-                    <a class="nav-link nav-icon search-bar-toggle " href="#">
-                        <i class="bi bi-search"></i>
-                    </a>
-                </li><!-- End Search Icon-->
 
                 <li class="nav-item dropdown pe-3">
 
@@ -25,9 +21,15 @@
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li>
+                            <a routerLink="/dashboard" class="dropdown-item d-flex align-items-center" href="#">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span >Usuario</span>
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <i class="bi bi-box-arrow-right"></i>
-                                <span>Cerrar sesión</span>
+                                <span (click)="layaut()">Cerrar sesión</span>
                             </a>
                         </li>
 
@@ -42,39 +44,39 @@
         <ul class="sidebar-nav" id="sidebar-nav">
             <i onclick="cerrar()" id="botonCerrar2" class="bi bi-x-lg toggle-sidebar-btn" style="color: white;"></i>
             <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
-            <li class="nav-item mb-5">
+            <li class="nav-item py-2 activo navItem" [class.activo]="elementoActivo === 'niveles'" (click)="marcarActivo('niveles')">
                 <a class="nav-link collapsed" routerLink="niveles"  style="background-color: transparent">
                     <img class="icono-menu" src="ilustrasiones/icono_inicio_white.svg" alt="">
                     <span class="text-white">Niveles</span>
                 </a>
             </li>
-            <li class="nav-item my-5">
+            <li class="nav-item py-2 navItem" [class.activo]="elementoActivo === 'Usuarios'" (click)="marcarActivo('Usuarios')">
                 <a class="nav-link collapsed" routerLink="usuarios" style="background-color: transparent">
                     <img class="icono-menu" src="ilustrasiones/icono_perfil_white.svg" alt="">
                     <span class="text-white">Usuarios</span>
                 </a>
             </li>
-            <li class="nav-item my-5" routerLink="lenguajes">
+            <li class="nav-item py-2 navItem" routerLink="lenguajes" [class.activo]="elementoActivo === 'Lenguajes'" (click)="marcarActivo('Lenguajes')">
                 <a class="nav-link collapsed" routerLink="lenguajes" style="background-color: transparent">
                     <img class="icono-menu" src="ilustrasiones/icono_email_white.svg" alt="">
                     <span class="text-white">Lenguajes</span>
                 </a>
             </li>
-            <li class="nav-item my-5 pointer" routerLink="fotos">
-                <a class="nav-link collapsed"  style="background-color: transparent">
+            <li class="nav-item py-2 navItem" routerLink="fotos" [class.activo]="elementoActivo === 'fotos'" (click)="marcarActivo('fotos')">
+                <a class="nav-link collapsed" routerLink="fotos" style="background-color: transparent">
                     <img class="icono-menu" src="ilustrasiones/icono_email_white.svg" alt="">
                     <span class="text-white">Fotos por defecto</span>
                 </a>
             </li>
-            <li class="nav-item my-5" routerLink="mensajes">
-                <a class="nav-link collapsed"  style="background-color: transparent">
+            <li class="nav-item py-2 navItem" routerLink="mensajes" [class.activo]="elementoActivo === 'mensajes'" (click)="marcarActivo('mensajes')">
+                <a class="nav-link collapsed" routerLink="mensajes" style="background-color: transparent">
                     <img class="icono-menu" src="ilustrasiones/icono_email_white.svg" alt="">
                     <span class="text-white">Mensajes</span>
                 </a>
             </li>
         </ul>
     </aside>
-    <main id="main" class="main">
+    <main id="main" class="main ">
         <router-outlet></router-outlet>
     </main>
 </div>

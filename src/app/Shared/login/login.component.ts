@@ -54,8 +54,13 @@ export class LoginComponent implements OnInit {
         let dato = result.dato
         localStorage.setItem('token', dato.acceso)
         localStorage.setItem('refreshToken', dato.actualizar)
-        localStorage.setItem("user", JSON.stringify(dato));
-        this.router.navigateByUrl('dashboard')
+        localStorage.setItem("admin", result.dato.administrador);
+
+        if (result.dato.administrador==true) {
+          this.router.navigateByUrl('admin')
+        } else {
+          this.router.navigateByUrl('dashboard')
+        }
       },
         error => {
           this.mensaje = error.error.mensaje
@@ -77,8 +82,13 @@ export class LoginComponent implements OnInit {
           let dato = result.dato
           localStorage.setItem('token', dato.acceso)
           localStorage.setItem('refreshToken', dato.actualizar)
-          localStorage.setItem("user", JSON.stringify(dato));
+          localStorage.setItem("admin", result.dato.administrador);
+        
+        if (result.dato.administrador==true) {
+          this.router.navigateByUrl('admin')
+        } else {
           this.router.navigateByUrl('dashboard')
+        }
         },
           error => {
             this.mensaje = error.error.mensaje

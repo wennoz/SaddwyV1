@@ -12,35 +12,37 @@
             <button class="btn btn-outline-primary" type="submit">Buscar</button>
           </form>
     </div>
-    <table class="table">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Explicación</th>
-                <th scope="col">Total preguntas</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Registro</th>
-                <th scope="col">Lenguaje</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let nivel of listNiveles">
-                <th scope="row">{{nivel.id}}</th>
-                <td>{{nivel.nombre}}</td>
-                <td>{{nivel.explanation}}</td>
-                <td>{{nivel.totalPreguntas}}</td>
-                <td>{{nivel.estado}}</td>
-                <td>{{nivel.registro}}</td>
-                <td>{{nivel.lenguajeNombre}}</td>
-                <td class="d-flex">
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(nivel.id)">eliminar</button>
-                    <button class="btn text-white mx-1" style="background-color: #4C428C;" (click)="editar(nivel.id)">editar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Explicación</th>
+                    <th scope="col">Total preguntas</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Registro</th>
+                    <th scope="col">Lenguaje</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let nivel of listNiveles">
+                    <th scope="row">{{nivel.id}}</th>
+                    <td>{{nivel.nombre}}</td>
+                    <td>{{nivel.explanation}}</td>
+                    <td>{{nivel.totalPreguntas}}</td>
+                    <td>{{nivel.estado}}</td>
+                    <td>{{nivel.registro}}</td>
+                    <td>{{nivel.lenguajeNombre}}</td>
+                    <td class="d-flex">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(nivel.id)">eliminar</button>
+                        <button class="btn text-white mx-1" style="background-color: #4C428C;" (click)="editar(nivel.id)">editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

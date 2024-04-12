@@ -8,6 +8,7 @@ import { UsuarioService } from 'src/app/Core/usuario.service';
 })
 export class IndexAdminComponent implements OnInit {
   user:any
+  elementoActivo: string = 'niveles';
   constructor( private serviseUser:UsuarioService) {}
 
   ngOnInit(): void {
@@ -15,11 +16,18 @@ export class IndexAdminComponent implements OnInit {
   }
   getProfile(){
     this.serviseUser.getProfile().subscribe(result=>{
-      console.log(result.dato.usuario);
       this.user=result.dato.usuario
     },error=> {
       console.log(error);
       
     })
+  }
+  marcarActivo(elemento: string) {
+    this.elementoActivo = elemento;
+  }
+  layaut(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('refreshToken')
+    localStorage.removeItem('admin')
   }
 }

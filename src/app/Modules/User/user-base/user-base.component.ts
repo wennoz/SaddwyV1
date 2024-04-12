@@ -14,11 +14,21 @@ export class UserBaseComponent implements OnInit{
   listLenguajes:any=[]
   filtro:any=[]
   buscador=''
+  admin:boolean=false
   constructor( private serviseUser:UsuarioService, private service:LenguajesService,private router: Router) {}
   saibar=true
+  elementoActivo: string = 'inicio';
   ngOnInit(): void {
-    this.getProfile();
+    this.getProfil();
     this.getLenguajes();
+    this.serviseUser.perfil$.subscribe(perfil => {
+      this.user = perfil;
+    });
+    if (localStorage.getItem('admin')=='false') {
+      this.admin=false
+    }else{
+      this.admin=true
+    }
   }
   onActivate(event:any) {
     if (event.constructor.name === 'PrincipalComponent') {
@@ -33,7 +43,7 @@ export class UserBaseComponent implements OnInit{
     localStorage.removeItem('refreshToken')
   }
 
-  getProfile(){
+  getProfil(){
     this.serviseUser.getProfile().subscribe(result=>{
       this.user=result.dato.usuario
     },error=> {
@@ -69,5 +79,8 @@ export class UserBaseComponent implements OnInit{
   }
   mostrar(){
     this.saibar=!this.saibar
+  }
+  marcarActivo(elemento: string) {
+    this.elementoActivo = elemento;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from 'src/app/Core/usuario.service';
@@ -26,6 +26,7 @@ export class PerfilComponent implements OnInit {
   }
   getProfile(){
     this.service.getProfile().subscribe(result=>{
+      this.service.actualizar(result.dato.usuario);
       this.user=result.dato.usuario
       this.nombre=this.user.nombre
       this.progreso=result.dato.progreso
@@ -46,11 +47,11 @@ export class PerfilComponent implements OnInit {
       return
     }
     let data={
-      foto:'',
       nombre:this.nombre,
       password:this.frmPass.controls['password'].value
     }
     this.service.edit(data).subscribe(result=>{
+      this.getProfile()
       this.toars.success('Contraseña actualizada', 'SaddWy')
     },
     error=>{
@@ -72,7 +73,7 @@ export class PerfilComponent implements OnInit {
       this.service.edit(formData).subscribe(result=>{
         console.log(result);
         this.getProfile();
-        this.toars.success('Foto agregada', 'SaddWy')
+        this.toars.success('Foto agregada', 'SaddWy',{ positionClass: 'toast-bottom-right' })
       }, error=>{
         console.log(error);
         

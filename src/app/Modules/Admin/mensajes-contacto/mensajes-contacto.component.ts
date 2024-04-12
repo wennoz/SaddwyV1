@@ -1,3 +1,4 @@
+import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ContactoAdminService } from 'src/app/Core/contacto-admin.service';
@@ -9,7 +10,8 @@ import { ContactoAdminService } from 'src/app/Core/contacto-admin.service';
 })
 export class MensajesContactoComponent implements OnInit{
   listMensajes:any=[]
-  mensaje:any
+  mensaje:any={}
+  fecha=''
   constructor(private service:ContactoAdminService, private toars:ToastrService){
 
   }
@@ -45,5 +47,21 @@ export class MensajesContactoComponent implements OnInit{
         console.log(error);
         
       })
+  }
+
+  getMensaje(id:any){
+    this.service.getById(id).subscribe(result=>{
+      console.log(result);
+     this.fecha=this.formatearFecha(result.registro)
+      this.mensaje=result
+    },error=>{
+      console.log(error);
+      
+    })
+  }
+
+  formatearFecha(fecha: string): string {
+    const fechaParseada = new Date(fecha);
+    return formatDate(fechaParseada, 'dd/MM/yyyy', 'en-US');
   }
 }

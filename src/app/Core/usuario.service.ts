@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,14 @@ export class UsuarioService {
   private urlBase = 'http://127.0.0.1:8000/api/v01/';
   private httpHeader:HttpHeaders
 
+  private perfilSubject = new BehaviorSubject<any>(null);
+  perfil$ = this.perfilSubject.asObservable();
+
   constructor(private Http:HttpClient) {
     this.httpHeader = new HttpHeaders();
     this.httpHeader.append('Content-Type', 'application/json');
    }
-  
+   
   save(data:any) {
       return this.Http.post<any>(this.urlBase+"register/",data,{headers :this.httpHeader})
   }
@@ -27,5 +31,9 @@ export class UsuarioService {
 
   delete(id:number) {
     return this.Http.delete<any>(this.urlBase+id.toString(),{headers :this.httpHeader})
+  }
+
+  actualizar(perfil:any){
+    this.perfilSubject.next(perfil);
   }
 }

@@ -9,12 +9,8 @@ export class rolGuard implements CanActivate {
   constructor( private router: Router) { }
 
   canActivate(): boolean {
-    const user = localStorage.getItem('user')
-    let usuario: any
-    if (user) {
-      usuario = JSON.parse(user)
-    }
-    if (usuario.administrador) {
+    const admin = localStorage.getItem('admin')
+    if (admin=='true') {
       return true
     } else {
       this.router.navigate(['/dashboard'])

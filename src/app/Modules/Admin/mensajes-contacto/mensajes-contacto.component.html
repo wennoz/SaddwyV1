@@ -1,6 +1,6 @@
 <div class="container">
     <div class="d-flex justify-content-center">
-     <h2>Mensajes</h2>
+     <h2>Mensajes de los usuarios</h2>
     </div>
     <table class="table">
       <thead class="table-light">
@@ -15,65 +15,50 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let foto of listMensajes">
-          <th scope="row">{{foto.id}}</th>
+        <tr *ngFor="let mensaje of listMensajes">
+          <th scope="row">{{mensaje.id}}</th>
           <td>
-            {{foto.nombre}}
+            {{mensaje.nombre}}
           </td>
           <td>
-            {{foto.celular}}
+            {{mensaje.celular}}
           </td>
           <td>
-            {{foto.correo}}
+            {{mensaje.correo}}
           </td>
           <td>
-            {{foto.mensaje}}
+            {{mensaje.mensaje}}
           </td>
-          <td>{{foto.registro}}</td>
+          <td>{{formatearFecha(mensaje.registro)}}</td>
           <td>
-            <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
-              class="btn text-white mx-1" style="background-color: #4C428C;">Ver</button>
+            <button data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+              class="btn text-white mx-1" style="background-color: #4C428C;" (click)="getMensaje(mensaje.id)">Ver</button>
           </td>
         </tr>
       </tbody>
     </table>
     <!-- modal de Agregar -->
-    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal modal-lg fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel" *ngIf="!mostrarEditar">Agrega una foto predeterminada</h1>
-            <h1 class="modal-title fs-5" id="staticBackdropLabel" *ngIf="mostrarEditar">Estas editando la foto {{idGlobal}}</h1>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Mnesaje de {{mensaje.nombre}}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <label class="form-label">Selecciona la foto</label>
-            <input id="fotoInput" class="form-control" type="file">
+           <p>Fecha: {{fecha}}</p>
+           <strong>{{mensaje.nombre}}</strong>
+           <p>{{mensaje.correo}}</p>
+           <p>{{mensaje.celular}}</p>
+            <p>{{mensaje.mensaje}}</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="!mostrarEditar" (click)="agregarFoto()">agregar</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="mostrarEditar" (click)="editarFoto()">Editar</button>
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- modal confirmacion -->
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <h3 class="text-center">¿Estas seguro de eliminar esta foto?</h3>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="eliminar()">Eliminar</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    </div>
+ 
   </div>

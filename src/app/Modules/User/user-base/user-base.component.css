@@ -20,3 +20,24 @@
 li{
     cursor: pointer;
 }
+.activo{
+    border: solid 1px white;
+    border-radius: 15px;
+    background-color: #6055a9;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navItem{
+    border: solid 1px;
+    border-color: transparent;
+    
+}
+.navItem:hover{
+    border-radius: 15px;
+    background-color: #6055a9;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.buscador{
+    border-color: rgb(216, 216, 216);
+    border-radius: 10px;
+}

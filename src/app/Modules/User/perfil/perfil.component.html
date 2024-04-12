@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xl-4">
       <h5 class="text-center">Días de avancé</h5>
-      <div class="row col-10 col-sm-7 col-lg-6 col-xl-12 mx-auto border border-black rounded-5 p-2 px-3 mb-4">
+      <div class="row col-10 col-sm-7 col-lg-6 col-xl-12 mx-auto border border-black rounded-5 p-2 px-3 mb-4 bg-white">
         <div class="col-1 m-2 m-sm-1  p-1 rounded-circle d-flex justify-content-center align-items-center"
           [ngClass]="{'racha': racha.Lunes, 'dia': !racha.Lunes}">L</div>
         <div class="col-1 m-2 m-sm-1 p-1 rounded-circle d-flex justify-content-center align-items-center "
@@ -20,19 +20,20 @@
       </div>
 
       <div class="card">
-        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-          <img src="{{user.foto}}" alt="Profile" class="rounded-circle perfil">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center overflow-x-hidden">
+          <div class="rounded-circle perfil">
+            <img src="{{user.foto}}" alt="Profile" class="">
+          </div>
           <h2>{{user.nombre}}</h2>
           <div class="ps-5 ">
-            <p class="my-1 w-full ">
+            <div class="my-1 d-flex overflow-y-auto">
               <img class="icono-menu" src="../../../../assets/icono_reloj.svg" alt="">
               Se unió el {{user.registro}}
-            </p>
-            <p class="my-1 w-full ">
+            </div>
+            <div class="my-1 d-flex  overflow-y-auto">
               <img class="icono-menu" src="../../../../assets/icono_email_black.svg" alt="">
               {{user.correo}}
-            </p>
+            </div>
           </div>
           <a class="btn my-3 p-2 text-white actualizar" data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar
             mi información</a>
@@ -97,19 +98,19 @@
                         <input type="file" name="name" class="form-control" id="fotoInput"
                           style="background-color: #ECDEF2;" accept="image/png/svg">
                         <div class="d-flex justify-content-end my-1">
-                          <button type="button" class="btn btn-primary w-full" (click)="cambiarFoto()">Actualizar información</button>
+                          <button type="button" class="btn btn-primary w-full" data-bs-dismiss="modal" (click)="cambiarFoto()">Actualizar información</button>
                         </div>
                       </div>
 
                       <form [formGroup]="frmPass" class="col-12 card p-3">
                         <label for="yourPassword" class="form-label">Contraseña:</label>
-                        <input formControlName="password" type="password" name="password" class="form-control"
-                          id="yourPassword" required style="background-color: #ECDEF2;">
+                        <input formControlName="password" type="password"  class="form-control"
+                           required style="background-color: #ECDEF2;">
                         <label for="yourPassword" class="form-label">Confirmar contraseña:</label>
-                        <input type="password" formControlName="ConfiPassword" class="form-control" id="yourPassword"
+                        <input type="password" formControlName="ConfiPassword" class="form-control" 
                           required style="background-color: #ECDEF2;">
                         <div class="d-flex justify-content-end my-1">
-                          <button type="button" class="btn btn-primary w-full" (click)="cambiar()">Actualizar
+                          <button type="button" class="btn btn-primary w-full"  (click)="cambiar()" data-bs-dismiss="modal">Actualizar
                             contraseña</button>
                         </div>
                       </form>

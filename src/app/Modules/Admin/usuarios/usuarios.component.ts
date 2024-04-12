@@ -46,6 +46,8 @@ export class UsuariosComponent implements OnInit {
     this.idGlobal=id
     this.service.getById(id).subscribe(result => {
       this.usuario = result
+      console.log(this.usuario);
+      
     }, error => {
       console.log(error);
 
@@ -60,15 +62,14 @@ export class UsuariosComponent implements OnInit {
       administrador=false
     }
    let data={
-    foto:this.usuario.foto,
-    password:this.usuario.password,
-    nombre:this.nombre,
-    correo:this.usuario.correo
+    administrador:administrador
    }
    console.log(data);
    
     this.service.editar(data, this.idGlobal).subscribe(result => {
+      this.toars.success('Rol del usuario editado', 'SaddWy',{ positionClass: 'toast-bottom-right' })
       console.log(result);
+      this.getAll()
     },
       error => {
         console.log(error);
