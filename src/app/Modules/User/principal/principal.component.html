@@ -27,14 +27,14 @@
         
         <h5 class="card-title mt-4 pb-0 ms-3">{{lenguaje.nombre}}</h5>
         <div class="card-body d-flex align-items-center flex-column">
-          <a class="btn btn-java d-flex align-items-center justify-content-center" style="text-decoration: none;" [style.backgroundColor]="lenguaje.color.componente" target="_blank"
-          href="{{lenguaje.urlDocumentation}}">Documentación</a>
           <button *ngFor="let nivel of lenguaje.niveles.slice(0, 1)" (click)="verNivel(nivel.id)" type="button"
-            class="btn  btn-java border-0 h-auto" [style.backgroundColor]="lenguaje.color.componente" style="opacity: 50;">
-            {{nivel.nombre}}-
-            {{nivel.explanation}}
-          </button>
-          <a  class="btn btn-java d-flex align-items-center justify-content-center" style="text-decoration: none;"(click)="verNiveles(lenguaje.nombre)"  [style.backgroundColor]="lenguaje.color.componente" >Ver mas</a>
+          class="btn  btn-java border-0 h-auto" [style.backgroundColor]="lenguaje.color.componente" style="opacity: 50;">
+          {{nivel.nombre}}-
+          {{nivel.explanation}}
+        </button>
+        <a  class="btn btn-java d-flex align-items-center justify-content-center" style="text-decoration: none;"(click)="verNiveles(lenguaje.nombre)"  [style.backgroundColor]="lenguaje.color.componente" >Ver niveles</a>
+        <a class="btn btn-java d-flex align-items-center justify-content-center" style="text-decoration: none;" [style.backgroundColor]="lenguaje.color.componente" target="_blank"
+        href="{{lenguaje.urlDocumentation}}">Documentación</a>
         </div>
       </div><!-- End Card with an image on top -->
     </div>

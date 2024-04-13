@@ -20,7 +20,6 @@ export class MensajesContactoComponent implements OnInit{
   }
   getAll(){
     this.service.getAll().subscribe(result=>{
-      console.log(result);
       this.listMensajes=result
     },error=>{
       console.log(error);
@@ -36,17 +35,6 @@ export class MensajesContactoComponent implements OnInit{
       console.log(error);
       
     })
-  }
-
-  eliminar(id:any){
-      this.service.delete(id).subscribe(result=>{
-        console.log(result);
-        this.getAll();
-        this.toars.success('Mensaje eliminado','SaddWy')
-      },error=>{
-        console.log(error);
-        
-      })
   }
 
   getMensaje(id:any){

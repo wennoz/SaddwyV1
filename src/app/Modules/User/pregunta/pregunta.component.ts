@@ -60,6 +60,7 @@ export class PreguntaComponent implements OnInit {
         this.correcta=false
         this.respuestas.splice(0, this.respuestas.length);
         this.rCorrecta=false
+        this.voltear=false
         if (this.cantidad==this.position+1) {
           this.btnFinal=true;
         }

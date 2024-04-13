@@ -15,6 +15,17 @@
     overflow: hidden;
     margin: 25px auto;
     border: 10px solid #4C428C;
+    position: relative;
+}
+.borde-foto img{
+    width: 100%; 
+    height: 100%; /* Mantiene la proporción de la imagen */
+    display: block; 
+    object-fit: cover;
+    position: absolute; /* Permite posicionar la imagen dentro del círculo */
+    top: 50%; /* Centra verticalmente la imagen en el círculo */
+    left: 50%; /* Centra horizontalmente la imagen en el círculo */
+    transform: translate(-50%, -50%); 
 }
 .primeros{
     background-color: #F1E9FC;
@@ -27,6 +38,7 @@
 .altura{
     height: 80vh;
 }
+
 @media (max-width: 768px) {
     .guia-podio{
         width: 60%;

@@ -22,7 +22,7 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center overflow-x-hidden">
           <div class="rounded-circle perfil">
-            <img src="{{user.foto}}" alt="Profile" class="">
+            <img src="{{user.foto}}" alt="Profile" class="img-fluid">
           </div>
           <h2>{{user.nombre}}</h2>
           <div class="ps-5 ">
@@ -91,14 +91,19 @@
                     </div>
                     <form class="row g-1 needs-validation">
                       <div class="col-12 card p-3">
-                        <label for="yourName" class="form-label">Nombre:</label>
-                        <input type="text" name="name" value="{{user.nombre}}" class="form-control" [(ngModel)]="nombre"
-                          style="background-color: #ECDEF2;">
                         <label for="yourName" class="form-label">Foto:</label>
                         <input type="file" name="name" class="form-control" id="fotoInput"
                           style="background-color: #ECDEF2;" accept="image/png/svg">
                         <div class="d-flex justify-content-end my-1">
-                          <button type="button" class="btn btn-primary w-full" data-bs-dismiss="modal" (click)="cambiarFoto()">Actualizar información</button>
+                          <button type="button" class="btn btn-primary w-full" data-bs-dismiss="modal" (click)="cambiarFoto()">Actualizar foto</button>
+                        </div>
+                      </div>
+                      <div class="col-12 card p-3">
+                        <label for="yourName" class="form-label">Nombre:</label>
+                        <input type="text" name="name" value="{{user.nombre}}" class="form-control" [(ngModel)]="nombre"
+                          style="background-color: #ECDEF2;">
+                        <div class="d-flex justify-content-end my-1">
+                          <button type="button" class="btn btn-primary w-full" data-bs-dismiss="modal" (click)="cambiarNombre()">Actualizar nombre</button>
                         </div>
                       </div>
 
@@ -110,7 +115,7 @@
                         <input type="password" formControlName="ConfiPassword" class="form-control" 
                           required style="background-color: #ECDEF2;">
                         <div class="d-flex justify-content-end my-1">
-                          <button type="button" class="btn btn-primary w-full"  (click)="cambiar()" data-bs-dismiss="modal">Actualizar
+                          <button type="button" class="btn btn-primary w-full"  (click)="cambiar()" >Actualizar
                             contraseña</button>
                         </div>
                       </form>
@@ -125,10 +130,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Actualizar</button>
-      </div> -->
     </div>
   </div>
 </div>

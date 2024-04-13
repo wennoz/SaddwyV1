@@ -110,8 +110,9 @@ body {
 .btnVer:hover{
     background-color: #4696db;
 }
+  
 .celebracion{
-    top: -200px; /* Ajusta la posición inicial según tu diseño */
+    top: -200px; 
     background-image: url('../../../../assets/confetti.jpg');
     height: 500px;
     background-size: cover;
@@ -119,7 +120,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-repeat: repeat-x; /* Repetir horizontalmente */
+    background-repeat: repeat-x; 
     animation: confetti-fall 3s linear; 
     background-color: transparent;
     overflow: hidden;

@@ -68,7 +68,7 @@ export class SingUpComponent implements OnInit {
       }
 
       if (this.frmSingUp.controls['nombre'].hasError('minlength') || this.frmSingUp.controls['nombre'].hasError('maxlength')) {
-        this.toastr.error('El nombre debe tener entre 10 y 50 caracteres', 'Nombre');
+        this.toastr.error('El nombre debe tener entre 10 y 30 caracteres', 'Nombre');
       }
       if (this.frmSingUp.controls['nombre'].hasError('pattern')) {
         this.toastr.error('El nombre solo puede contener letras y espacios', 'Nombre');
