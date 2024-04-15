@@ -6,10 +6,11 @@
 * License: https://bootstrapmade.com/license/
 */
 
-function cerrar() {
+function cerrarMetodo() {
   let boton = document.getElementById('botonCerrar')
   boton.click()
 }
+
 const menu = document.querySelector("#menu")
 const abrir = document.querySelector("#abrir")
 const cerrar = document.querySelector("#cerrar")
