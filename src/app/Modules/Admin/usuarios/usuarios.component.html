@@ -19,10 +19,7 @@
               <tr *ngFor="let user of listUser">
                   <th scope="row">{{user.id}}</th>
                   <th scope="row ">
-                   <div class="w-25 overflow-hidden rounded-5 position-relative" style="height: 50px;" >
- 
-                     <img class="img-fluid " src="{{user.foto}}" alt="User">
-                   </div>
+                     <img class="img-fluid rounded-5 fotoLenguaje" src="{{user.foto}}" alt="User">
                   </th>
                   <td>{{user.nombre}}</td>
                   <td>{{user.correo}}</td>
