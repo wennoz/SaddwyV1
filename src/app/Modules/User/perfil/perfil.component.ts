@@ -51,6 +51,8 @@ export class PerfilComponent implements OnInit {
   }
   getProfile() {
     this.service.getProfile().subscribe(result => {
+      console.log(result);
+      
       this.service.actualizar(result.dato.usuario);
       this.user = result.dato.usuario
       this.nombre = this.user.nombre

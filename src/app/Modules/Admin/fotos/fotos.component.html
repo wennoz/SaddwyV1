@@ -2,31 +2,33 @@
   <div class="d-flex justify-content-end">
     <button class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="mostrarAgregar()">Agregar foto</button>
   </div>
-  <table class="table">
-    <thead class="table-light">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Foto</th>
-        <th scope="col">Registro</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let foto of listFotos">
-        <th scope="row">{{foto.id}}</th>
-        <td>
-          <img class="w-25 h-25 rounded-5" src="{{foto.foto}}" alt="">
-        </td>
-        <td>{{foto.registro}}</td>
-        <td>
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
-            class="btn btn-secondary mx-1" (click)="tomarId(foto.id)">eliminar</button>
-          <button class="btn text-white mx-1" style="background-color: #4C428C;" (click)="mostrarEditarF(foto.id)" data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop">editar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Registro</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let foto of listFotos">
+          <th scope="row">{{foto.id}}</th>
+          <td>
+            <img class="w-25 h-25 rounded-5" src="{{foto.foto}}" alt="">
+          </td>
+          <td>{{foto.registro}}</td>
+          <td>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+              class="btn btn-secondary mx-1" (click)="tomarId(foto.id)">eliminar</button>
+            <button class="btn text-white mx-1" style="background-color: #4C428C;" (click)="mostrarEditarF(foto.id)" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop">editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <!-- modal de Agregar -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -42,7 +44,7 @@
           <input id="fotoInput" class="form-control" type="file">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="!mostrarEditar" (click)="agregarFoto()">agregar</button>
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="mostrarEditar" (click)="editarFoto()">Editar</button>
         </div>

@@ -27,16 +27,6 @@ export class MensajesContactoComponent implements OnInit{
     })
   }
 
-  ver(id:any){
-    this.service.getById(id).subscribe(result=>{
-      console.log(result);
-      this.mensaje=result
-    },error=>{
-      console.log(error);
-      
-    })
-  }
-
   getMensaje(id:any){
     this.service.getById(id).subscribe(result=>{
       console.log(result);

@@ -3,7 +3,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center justify-content-between z-2">
         <div class="d-flex justify-content-start">
            
-                <img class="icono-menu" src="../../../../assets/icono_hamburguesa.svg" alt="">
+                <img (click)="mostrar()" class="icono-menu" src="../../../../assets/icono_hamburguesa.svg" alt="">
        
         </div>
 
@@ -40,9 +40,9 @@
         </nav><!-- End Icons Navigation -->
 
     </header><!-- End Header -->
-    <aside id="sidebar" class="sidebar navegation z-3">
+    <aside id="sidebar" [ngClass]="saibar ? 'd-none':''" class="sid navegation z-3  d-lg-block">
         <ul class="sidebar-nav" id="sidebar-nav">
-            <i onclick="cerrar()" id="botonCerrar2" class="bi bi-x-lg toggle-sidebar-btn" style="color: white;"></i>
+            <img src="../../../../assets/icono_cerrar.svg" (click)="mostrar()"   class="d-block d-lg-none icono-menu" >
             <img class="logo img-fluid mb-5" src="../../../../assets/logo_SaddWy_white.svg" alt="">
             <li class="nav-item py-2 activo navItem" [class.activo]="elementoActivo === 'niveles'" (click)="marcarActivo('niveles')">
                 <a class="nav-link collapsed" routerLink="niveles"  style="background-color: transparent">

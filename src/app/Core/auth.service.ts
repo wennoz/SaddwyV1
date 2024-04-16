@@ -62,17 +62,14 @@ export class AuthService {
   }
 
   iniciarIntervaloRefresco() {
-    // Emite un valor cada 10 minutos (600,000 milisegundos)
-    const intervalo$ = interval(500000);
+    const intervalo$ = interval(420000);
 
-    // Ejecuta el refresco de token cada vez que se emite un valor del intervalo
     intervalo$
       .pipe(
-        switchMap(() => this.refrescar()) // Utiliza switchMap para cancelar las solicitudes anteriores si se emite un nuevo valor
+        switchMap(() => this.refrescar()) 
       )
       .subscribe(
         (result) => {
-          // Manejar el resultado del refresco del token
           localStorage.removeItem('token')
           localStorage.removeItem('refreshToken')
           localStorage.setItem('token', result.access);

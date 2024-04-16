@@ -19,3 +19,26 @@
     width: 5%;
     margin-right: 3%;
 }
+.icono-menu {
+    width: 10%;
+    margin-right: 3%;
+}
+
+.sid {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 996;
+    transition: all 0.3s;
+    padding: 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+}
+li{
+    cursor: pointer;
+}
+

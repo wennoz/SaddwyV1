@@ -67,3 +67,16 @@
 .texto{
     color: rgb(228, 221, 221);
 }
+@media only screen and (max-width: 767px) {
+    .carta{
+        flex-direction: column;
+    }
+
+    .formulario{
+        width: 100%;
+    }
+    .preguntas{
+        margin-top: 10px;
+        width: 100%;
+    }
+}

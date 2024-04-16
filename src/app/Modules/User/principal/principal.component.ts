@@ -22,9 +22,8 @@ export class PrincipalComponent implements OnInit {
   getAll() {
     this.service.getAll().subscribe(result => {
       this.listLenguaje = result.dato
-      console.log(this.listLenguaje[0].logo);
-      console.log(result);
-
+      console.log(result.dato);
+      
     },
       error => {
         console.log(error);

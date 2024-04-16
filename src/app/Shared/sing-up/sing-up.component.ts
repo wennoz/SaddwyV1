@@ -14,6 +14,7 @@ export class SingUpComponent implements OnInit {
   visible2: boolean = true;
   changetype: boolean = true;
   changetype2: boolean = true;
+  cargando=false
 
   viewpass() {
     this.visible = !this.visible;
@@ -84,17 +85,19 @@ export class SingUpComponent implements OnInit {
     }    
 
     if (passConfi == pass) {
+      this.cargando=true
       let data = {
         "nombre": this.frmSingUp.controls['nombre'].value,
         "correo": this.frmSingUp.controls['correo'].value,
         "password": this.frmSingUp.controls['password'].value
       }
       this.service.save(data).subscribe(result => {
-        console.log(result);
+        this.cargando=false
           this.toastr.success('Bienvenid@, revisa tu correo, hemos enviado un enlace para que inicies sesión. ','SaddWy')
       }, error => {
         console.log(error);
         this.toastr.error(error.error.mensaje, 'Contraseña');
+        this.cargando=false
       });
     } else {
       this.toastr.error('Las contraseñas no coinciden', 'Contraseña');

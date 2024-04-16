@@ -6,7 +6,10 @@
 * License: https://bootstrapmade.com/license/
 */
 
+const { Alert } = require("bootstrap")
+
 function cerrar() {
+  Alert('hola')
   let boton = document.getElementById('botonCerrar')
   boton.click()
 }

@@ -2,53 +2,57 @@
     <h2>Lenguajes</h2>
     <div class="d-flex justify-content-end p-1">
         <button #modalButton type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop">
+            data-bs-target="#staticBackdrop" (click)="agregar()">
             Agregar lenguaje
         </button>
     </div>
-    <table class="table">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Logo</th>
-                <th scope="col">Url documentación</th>
-                <th scope="col">Color lenguaje</th>
-                <th scope="col">Color componentes</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Registro</th>
-                <th scope="col">Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let len of listLenguajes">
-                <th scope="row">{{len.id}}</th>
-                <td>{{len.nombre}}</td>
-                <th scope="row">
-                    <img class="w-25 h-25 rounded-5" src="{{len.logo}}" alt="User">
-                </th>
-                <td>
-                    <a class="icon-link" href="{{len.urlDocumentation}}">{{len.nombre}}</a>
-                </td>
-                <td>{{len.color.fondo}}</td>
-                <td>{{len.color.componente}}</td>
-                <td>{{len.estado ? 'Activo':'Inactivo'}}</td>
-                <td>{{len.registro}}</td>
-                <td class=" d-flex">
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
-                        class="btn btn-secondary mx-1" (click)="tomarId(len.id)">eliminar</button>
-                    <button class="btn text-white mx-1" style="background-color: #4C428C;" (click)="verLenguajes(len.id)">editar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Url documentación</th>
+                    <th scope="col">Color lenguaje</th>
+                    <th scope="col">Color componentes</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Registro</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let len of listLenguajes">
+                    <th scope="row">{{len.id}}</th>
+                    <td>{{len.nombre}}</td>
+                    <th scope="row">
+                        <img class="w-25 h-25 rounded-5" src="{{len.logo}}" alt="User">
+                    </th>
+                    <td>
+                        <a class="icon-link" href="{{len.urlDocumentation}}">{{len.nombre}}</a>
+                    </td>
+                    <td>{{len.color.fondo}}</td>
+                    <td>{{len.color.componente}}</td>
+                    <td>{{len.estado ? 'Activo':'Inactivo'}}</td>
+                    <td>{{len.registro}}</td>
+                    <td class=" d-flex">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+                            class="btn btn-secondary mx-1" (click)="tomarId(len.id)">eliminar</button>
+                        <button class="btn text-white mx-1" style="background-color: #4C428C;" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop" (click)="verLenguajes(len.id)">editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <div class="modal modal-lg fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Agrega el nuevo lenguaje</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel" *ngIf="editar">Editar lenguaje</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel" *ngIf="!editar">Agrega el nuevo lenguaje</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form [formGroup]="frmLenguaje" class="modal-body">

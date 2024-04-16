@@ -2,49 +2,51 @@
     <div class="d-flex justify-content-center">
      <h2>Mensajes de los usuarios</h2>
     </div>
-    <table class="table">
-      <thead class="table-light">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">celular</th>
-          <th scope="col">correo</th>
-          <th scope="col">Mensaje</th>
-          <th scope="col">Fecha</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let mensaje of listMensajes">
-          <th scope="row">{{mensaje.id}}</th>
-          <td>
-            {{mensaje.nombre}}
-          </td>
-          <td>
-            {{mensaje.celular}}
-          </td>
-          <td>
-            {{mensaje.correo}}
-          </td>
-          <td>
-            {{mensaje.mensaje}}
-          </td>
-          <td>{{formatearFecha(mensaje.registro)}}</td>
-          <td>
-            <button data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-              class="btn text-white mx-1" style="background-color: #4C428C;" (click)="getMensaje(mensaje.id)">Ver</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">celular</th>
+            <th scope="col">correo</th>
+            <th scope="col">Mensaje</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mensaje of listMensajes">
+            <th scope="row">{{mensaje.id}}</th>
+            <td>
+              {{mensaje.nombre}}
+            </td>
+            <td>
+              {{mensaje.celular}}
+            </td>
+            <td>
+              {{mensaje.correo}}
+            </td>
+            <td>
+              {{mensaje.mensaje}}
+            </td>
+            <td>{{formatearFecha(mensaje.registro)}}</td>
+            <td>
+              <button data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+                class="btn text-white mx-1" style="background-color: #4C428C;" (click)="getMensaje(mensaje.id)">Ver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
     <!-- modal de Agregar -->
     <div class="modal modal-lg fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Mnesaje de {{mensaje.nombre}}</h1>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Mensaje de {{mensaje.nombre}}</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -55,7 +57,7 @@
             <p>{{mensaje.mensaje}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>

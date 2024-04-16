@@ -47,8 +47,13 @@
                     </div>
 
                     <div class="col-8 col-sm-7 col-md-7 mx-auto">
-                      <button class="btn w-100 text-white iniciar-sesion rounded-5" (click)="singUp()">
-                        Registrarse
+                      <button [class]="cargando ? 'cargando':''" class="btn w-100 text-white iniciar-sesion rounded-5" (click)="singUp()">
+                        <div *ngIf="cargando"class="spinner-border" role="status">
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p *ngIf="!cargando" class="p-0 my-2">
+                          Registrarse
+                        </p>
                       </button>
                     </div>
                   </form>

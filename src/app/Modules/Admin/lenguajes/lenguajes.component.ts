@@ -10,7 +10,6 @@ import { LenguajesAdminService } from 'src/app/Core/lenguajes-admin.service';
 })
 export class LenguajesComponent implements OnInit {
   listLenguajes: any = []
-  lenguaje: any = {}
   idGlobal = 0
   editar=false
   frmLenguaje: FormGroup;
@@ -39,6 +38,15 @@ export class LenguajesComponent implements OnInit {
         console.log(error);
 
       })
+  }
+
+  agregar(){
+    this.editar=false;
+    this.frmLenguaje.controls['nombre'].setValue(''); // Corrección aquí
+    this.frmLenguaje.controls['urlDocumentation'].setValue(''); // Completa los otros campos
+    this.frmLenguaje.controls['fondo'].setValue('');
+    this.frmLenguaje.controls['componente'].setValue('');
+   
   }
 
   agregarLenguaje() {
@@ -76,6 +84,7 @@ export class LenguajesComponent implements OnInit {
 
   tomarId(id: any) {
     this.idGlobal = id;
+  
   }
   eliminar() {
     this.service.delete(this.idGlobal).subscribe(result => {
@@ -90,7 +99,7 @@ export class LenguajesComponent implements OnInit {
 
   verLenguajes(id: any) {
     this.editar=true
-    this.modalButton.nativeElement.click();
+    
     this.idGlobal = id;
     this.service.getById(id).subscribe(result => {
       this.frmLenguaje.controls['nombre'].setValue(result.nombre); // Corrección aquí

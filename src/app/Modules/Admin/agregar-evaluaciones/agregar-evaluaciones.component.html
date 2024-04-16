@@ -1,5 +1,6 @@
 <div class="container">
-    <h3>Crear nivel</h3>
+    <h3 *ngIf="id==undefined">Agregar nivel</h3>
+    <h3 *ngIf="id!=undefined">Editar nivel</h3>
     <div class="row d-flex justify-content-between">
         <div class="col">
             <label for="">Nombre del nivel</label>
@@ -17,7 +18,8 @@
     </div>
     <div class="carta mt-3">
         <div class="formulario">
-            <h4>Crea una pregunta</h4>
+            <h4 *ngIf="!editar">Crea una pregunta</h4>
+            <h4 *ngIf="editar">Editar Pregunta</h4>
             <div>
                 <textarea class="form-control" [(ngModel)]="enunciado" cols="2" rows="3"
                     placeholder="Escribe el enunciado"></textarea>

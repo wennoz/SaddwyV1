@@ -1,41 +1,43 @@
 <div class="container">
    <h2>Usuarios</h2>
    <div class="row">
-     <table class="col-6 table overflow-x-auto ">
-         <thead class="table-light">
-             <tr>
-                 <th scope="col">Id</th>
-                 <th scope="col">Foto</th>
-                 <th scope="col">Nombre</th>
-                 <th scope="col">Correo</th>
-                 <th scope="col">Estado</th>
-                 <th scope="col">Rol</th>
-                 <th scope="col">Registro</th>
-                 <th scope="col">Acciones</th>
-               </tr>
-         </thead>
-         <tbody>
-             <tr *ngFor="let user of listUser">
-                 <th scope="row">{{user.id}}</th>
-                 <th scope="row ">
-                  <div class="w-25 overflow-hidden rounded-5 position-relative" style="height: 50px;" >
-
-                    <img class="img-fluid " src="{{user.foto}}" alt="User">
-                  </div>
-                 </th>
-                 <td>{{user.nombre}}</td>
-                 <td>{{user.correo}}</td>
-                 <td>{{ user.estado ? 'Activo' : 'Inactivo' }}</td>
-                 <td>{{ user.administrador ? 'Administrador' : 'Usuario' }}</td>
-                 <td>{{ user.registro }}</td>
-                 <td class="d-flex">
-                     <button  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(user.id)">eliminar</button>
-                     <button style="background-color: #4C428C;" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="btn text-white mx-1" (click)="getUser(user.id)">Editar</button>
+    <div class="table-responsive">
+      <table class="col-6 table overflow-x-auto ">
+          <thead class="table-light">
+              <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Foto</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Rol</th>
+                  <th scope="col">Registro</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let user of listUser">
+                  <th scope="row">{{user.id}}</th>
+                  <th scope="row ">
+                   <div class="w-25 overflow-hidden rounded-5 position-relative" style="height: 50px;" >
  
-                 </td>
-               </tr>
-         </tbody>
-       </table>
+                     <img class="img-fluid " src="{{user.foto}}" alt="User">
+                   </div>
+                  </th>
+                  <td>{{user.nombre}}</td>
+                  <td>{{user.correo}}</td>
+                  <td>{{ user.estado ? 'Activo' : 'Inactivo' }}</td>
+                  <td>{{ user.administrador ? 'Administrador' : 'Usuario' }}</td>
+                  <td>{{ user.registro }}</td>
+                  <td class="d-flex">
+                      <button  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="btn btn-secondary mx-1" (click)="tomarId(user.id)">eliminar</button>
+                      <button style="background-color: #4C428C;" data-bs-toggle="modal" data-bs-toggle="modal" data-bs-target="#staticBackdrop"class="btn text-white mx-1" (click)="getUser(user.id)">Editar</button>
+  
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+    </div>
    </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -84,7 +86,7 @@
         </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           <button type="button" class="btn btn-warning" data-bs-dismiss="modal" (click)="editar()">Editar usuario</button>
         </div>
       </div>

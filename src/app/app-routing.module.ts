@@ -30,7 +30,7 @@ import { MensajesContactoComponent } from './Modules/Admin/mensajes-contacto/men
 const routes: Routes = [
   {
     path: 'login',
-    canActivate:[isAuthGuard],
+    canActivate:[isAuthGuard],//verifica si ya inicio sesión y si lo hizo, no lo deja ir al login
     component: LoginComponent
   },
   {
@@ -60,14 +60,15 @@ const routes: Routes = [
     component: PreguntaComponent,
     canActivate: [AuthGuard]
   },
+  //Rutas de usuario
   {
     path: 'dashboard',
     component: UserBaseComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard],//verifica si no ha iniciado sesión y si no lo ha hecho lo manda al login
     children: [
       {
         path: '',
-        redirectTo: 'principal', // Redireccionar a evaluaciones por defecto
+        redirectTo: 'principal', 
         pathMatch: 'full'
       },
       {
@@ -101,7 +102,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: IndexAdminComponent,
-    canActivate: [AuthGuard, rolGuard],
+    canActivate: [AuthGuard, rolGuard],////verifica si no ha iniciado sesión y si no lo ha hecho lo manda al login, ademas verifica el rol, y si no tiene el rol admin no lo deja pasar 
     children: [
       {
         path: '',

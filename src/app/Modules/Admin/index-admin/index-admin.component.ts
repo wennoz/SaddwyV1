@@ -9,6 +9,7 @@ import { UsuarioService } from 'src/app/Core/usuario.service';
 export class IndexAdminComponent implements OnInit {
   user:any
   elementoActivo: string = 'niveles';
+  saibar=true
   constructor( private serviseUser:UsuarioService) {}
 
   ngOnInit(): void {
@@ -24,10 +25,14 @@ export class IndexAdminComponent implements OnInit {
   }
   marcarActivo(elemento: string) {
     this.elementoActivo = elemento;
+    this.mostrar()
   }
   layaut(){
     localStorage.removeItem('token')
     localStorage.removeItem('refreshToken')
     localStorage.removeItem('admin')
+  }
+  mostrar(){
+    this.saibar=!this.saibar
   }
 }
