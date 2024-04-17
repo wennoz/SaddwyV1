@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Core/auth.service';
 import { UsuarioService } from 'src/app/Core/usuario.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class IndexAdminComponent implements OnInit {
   user:any
   elementoActivo: string = 'niveles';
   saibar=true
-  constructor( private serviseUser:UsuarioService) {}
+  constructor( private serviseUser:UsuarioService,private authService:AuthService) {}
 
   ngOnInit(): void {
    this.getProfile() ;
@@ -28,6 +29,7 @@ export class IndexAdminComponent implements OnInit {
     this.mostrar()
   }
   layaut(){
+    this.authService.detenerIntervalo();
     localStorage.removeItem('token')
     localStorage.removeItem('refreshToken')
     localStorage.removeItem('admin')

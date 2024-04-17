@@ -136,7 +136,7 @@ export class LenguajesComponent implements OnInit {
     formData.append('estado', 'true');
 
     this.service.editar(formData, this.idGlobal).subscribe(result => {
-      console.log(result);
+      this.toars.success('Lenguaje editado', 'SaddWy')
       this.getAll()
     },
       error => {

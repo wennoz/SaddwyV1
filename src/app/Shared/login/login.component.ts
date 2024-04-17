@@ -49,8 +49,7 @@ export class LoginComponent implements OnInit {
         return
       }
       this.authService.login(credentials).subscribe(result => {
-        console.log(result.dato.administrador);
-        
+        this.authService.iniciarIntervaloRefresco();
         let dato = result.dato
         localStorage.setItem('token', dato.acceso)
         localStorage.setItem('refreshToken', dato.actualizar)
@@ -79,6 +78,7 @@ export class LoginComponent implements OnInit {
           return
         }
         this.authService.login(credentials).subscribe(result => {
+          this.authService.iniciarIntervaloRefresco();
           let dato = result.dato
           localStorage.setItem('token', dato.acceso)
           localStorage.setItem('refreshToken', dato.actualizar)

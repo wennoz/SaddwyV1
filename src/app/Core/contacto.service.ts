@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ContactoService {
-  private urlBase = 'http://127.0.0.1:8000/api/v01/ContactUs/';
+  private urlBase = 'http://77.37.63.223:8000/api/v01/contact/';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {

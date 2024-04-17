@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   //este es el metodo/funcion que se ejecuta siempre apenas se abre este componente
   ngOnInit(): void {
-    this.auth.iniciarIntervaloRefresco();
+    // this.auth.iniciarIntervaloRefresco();
   }
 
 }

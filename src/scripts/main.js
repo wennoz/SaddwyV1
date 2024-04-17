@@ -1,21 +1,19 @@
-/**
-* Template Name: NiceAdmin
-* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+// /**
+// * Template Name: NiceAdmin
+// * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+// * Updated: Mar 17 2024 with Bootstrap v5.3.3
+// * Author: BootstrapMade.com
+// * License: https://bootstrapmade.com/license/
+// */
 
-const { Alert } = require("bootstrap")
+import { Alert } from "bootstrap"
 
 function cerrar() {
   Alert('hola')
   let boton = document.getElementById('botonCerrar')
   boton.click()
 }
-const menu = document.querySelector("#menu")
-const abrir = document.querySelector("#abrir")
-const cerrar = document.querySelector("#cerrar")
+
 
 
 abrir.addEventListener("click", () => {

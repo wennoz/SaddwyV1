@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Core/auth.service';
 import { LenguajesService } from 'src/app/Core/lenguajes.service';
-import { NivelesService } from 'src/app/Core/niveles.service';
 
 @Component({
   selector: 'app-principal',
@@ -13,8 +12,7 @@ export class PrincipalComponent implements OnInit {
   listLenguaje: any = []
 
   constructor(private service: LenguajesService,
-    private router: Router,
-    private auth: AuthService) { }
+    private router: Router) { }
   ngOnInit(): void {
     this.getAll();
   }
@@ -22,8 +20,6 @@ export class PrincipalComponent implements OnInit {
   getAll() {
     this.service.getAll().subscribe(result => {
       this.listLenguaje = result.dato
-      console.log(result.dato);
-      
     },
       error => {
         console.log(error);

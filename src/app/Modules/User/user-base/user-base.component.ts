@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Core/auth.service';
 import { LenguajesService } from 'src/app/Core/lenguajes.service';
 import { UsuarioService } from 'src/app/Core/usuario.service';
 
@@ -15,7 +16,7 @@ export class UserBaseComponent implements OnInit{
   filtro:any=[]
   buscador=''
   admin:boolean=false
-  constructor( private serviseUser:UsuarioService, private service:LenguajesService,private router: Router) {}
+  constructor( private serviseUser:UsuarioService, private service:LenguajesService,private router: Router, private authService:AuthService) {}
   saibar=true
   elementoActivo: string = 'inicio';
   ngOnInit(): void {
@@ -38,6 +39,7 @@ export class UserBaseComponent implements OnInit{
     }
   }
   loyaut(){
+    this.authService.detenerIntervalo();
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     localStorage.removeItem('refreshToken')

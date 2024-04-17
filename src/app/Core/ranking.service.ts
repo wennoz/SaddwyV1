@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RankingService {
-  private urlBase = 'http://127.0.0.1:8000/api/v01/ranking/';
+  private urlBase = 'http://77.37.63.223:8000/api/v01/ranking/';
   private httpHeader:HttpHeaders
 
   constructor(private Http:HttpClient) {
